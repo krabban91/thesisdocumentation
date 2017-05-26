@@ -44,6 +44,12 @@ Histogram of oriented gradients (HOG) is a feature descriptor used for object de
 
 A color histogram is a representation of the color distrubution in an image. The color histogram method counts the number of pixels with similar attributes and store them in a number of bins. There are no specific sizes for the bins, though there is a max size based on current color range used. The size used is dependent on the performance of using less bins in contrast to computational cost of using more bins\todo{overfitting?}. In image analysis it is common to use HSV for this histogram, which would result in three dimensions of bins, one for each color channel, and a max of 256 bins in each HSV color range. When calculating a global color histogram (GCH) one does not take smaller patches of the image and calculate the concentration of information locally, instead it is calculated over the image as a whole. This approach can be insensitive where the objects might be similar but the color characteristics are. Two completely different images can still contain the same GCH values due to that the images have similar color settings.
 
+\twofigure
+{figure/gch/hsv_histogram.png}
+{figure/gch/hsv_histogram.png}
+{Caption}
+{fig:imagetheory:gch} 
+\todo{write caption for figure.}
 
 \subsection{Wavelet transform}
 \label{sec:wlt_feature}
@@ -85,11 +91,11 @@ The architecture varies a lot between different designs\todo{go on? point is mis
 
 One of the hardest parts is to configure a CNN based on these layers to create a well versed and functioning network. In this thesis the VGG-16 network is used\todo{cite vgg paper}. How the VGG-16 is built by using all these different layers in their convolutional neural network is shown to the left in Figure \ref{fig:imagetheory:vgg16}. A method called transfer learning is applied where one use pre-trained\todo{rephrase} CNN models and then just remove the last output layer, and extract the features directly from the fully-connected layers \cite{koskela2014convolutional}. To be able to use the network for the purpose of a feature descriptor modifications were made. The the final fully-connected layer as well as the softmax layer, the loss layer, are both omitted as can be seen in Figure \ref{fig:imagetheory:vgg16}. 
 
-\singlefigure
+\singlefigurenear
 {figure/vgg_architecture.png}
 {Top: A simplified visualization of the VGG-16 CNN. Bottom: The modification done in this thesis.}
 {fig:imagetheory:vgg16}
-{0.9}
+{0.7}
 
 \subsection{Edge detection histogram}
 \label{sec:sob_feature}
@@ -100,5 +106,5 @@ The set of edge detectors is a group of different methods that aim to identify s
 {figure/edge/Grey_cat.png}
 {figure/edge/Sobel_cat_r.png}
 {Caption}
-{fig:imagetheory:wavelet} 
+{fig:imagetheory:edge} 
 \todo{write caption for figure.}
