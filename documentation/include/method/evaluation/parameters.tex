@@ -2,8 +2,8 @@
 \subsection{Parameter benchmarks}
 \label{sec:method:eval:param}
 \todo{}
-The presentation of the proposed model in Section \ref{sec:method:proposed} covers the mostpart of how the optimal implementation is designed. What it does not cover is if some of the design decisions are good and not. \todo{For example in}In Section \ref{sec:method:proposed:rf} \todo{remove : ``that covers the relevance feedback module''}that covers the relevance feedback module The\todo{the} selection of images to present to the user is mentioned but not elaborated. \todokahl{In Section... Konstig mening. Omformulera.}In Section \ref{sec:method:proposed:matching:search}, that covers how the search space is explored, two stopping conditions are introduced\todo{and => , yet } and how they affect performance needs to be evaluated. \todo{replace sentence with: The five feature descriptors covered in Section \ref{sec:method:proposed:features}, need to be evaluated. Not only in combination but how they perform on their own.}In Section \ref{sec:method:proposed:features}, that covers the feature extraction module, five different feature descriptors are extracted to be used by the classifier. The usage of these feature descriptors alone needs to be compared to when they are combined. \todo{Entire sentence: As well as the effect of the training sets mentioned in Section \ref{sec:method:proposed:matching:training}. How much can the behaviour of the model change depending on training set sizes.}Finally the Section \ref{sec:method:proposed:matching:training}, the training data for the matching module, mentions having different training set sizes but not which sizes that are expected to work the best.
-To summarize, the parameter \todo{benchmark will consist of => benchmarks are}benchmark will consist of the following four evaluations:
+The presentation of the proposed model in Section \ref{sec:method:proposed} covers the mostpart\todo{split words} of how the optimal implementation is designed. What it does not cover is if some of the design decisions are good and\todo{or} not. \todo{For example in}In Section \ref{sec:method:proposed:rf} \todo{remove : ``that covers the relevance feedback module''}that covers the relevance feedback module The\todo{the} selection of images to present to the user is mentioned but not elaborated. \todokahl{In Section... Konstig mening. Omformulera.}In Section \ref{sec:method:proposed:matching:search}, that covers how the search space is explored, two stopping conditions are introduced\todo{and => , yet } and how they affect performance needs to be evaluated. \todo{replace sentence with: The five feature descriptors covered in Section \ref{sec:method:proposed:features}, need to be evaluated. Not only in combination but how they perform on their own.}In Section \ref{sec:method:proposed:features}, that covers the feature extraction module, five different feature descriptors are extracted to be used by the classifier. The usage of these feature descriptors alone needs to be compared to when they are combined\todo{rephrase}. \todo{Entire sentence: As well as the effect of the training sets mentioned in Section \ref{sec:method:proposed:matching:training}. How much can the behaviour of the model change depending on training set sizes.}Finally the Section \ref{sec:method:proposed:matching:training}, the training data for the matching module, mentions having different training set sizes but not which sizes that are expected to work the best.
+To summarize, the parameter \todo{benchmark will consist of => benchmarks are}benchmark will consist of the following four evaluations:\todo{the order of sections mentioned in the bullets differ form the one in the text, relevant?}
 \begin{itemize}
 \item The effect of presenting different sets of images to the user for relevance feedback (Section \ref{sec:method:eval:param:learning}).
 \item The effect of proning\todo{pruning} the search space each\todo{each iteration=> during the search iterations} iteration (Section \ref{sec:method:eval:param:stopping}).
@@ -12,7 +12,7 @@ To summarize, the parameter \todo{benchmark will consist of => benchmarks are}be
 \end{itemize}
 \medskip
 
-Before specifying which metrics that are intended to be used in these evaluation, the metrics need to be defined. The two more commonly used measures are \emph{recall}\todokahl{ekvationer del av meningen} (see Equation (\ref{eq:meth:recall}))\todo{Bake} and \emph{precison} (see Equation (\ref{eq:meth:precision}))\todo{Bake}. Often presented in pairs due to the fact that recall can reveal if the matching module presents too many false negatives while precision can indicate if too many false positives are presented. 
+Before specifying which metrics that are intended to be used in these evaluation\todo{plural}, the metrics need to be defined. The two more commonly used measures are \emph{recall}\todokahl{ekvationer del av meningen} (see Equation (\ref{eq:meth:recall}))\todo{Bake} and \emph{precison} (see Equation (\ref{eq:meth:precision}))\todo{Bake}. Often presented in pairs due to the fact that recall can reveal if the matching module presents too many false negatives while precision can indicate if too many false positives are presented. 
 
 \begin{equation}
 \label{eq:meth:recall}
@@ -33,7 +33,7 @@ A metric that measures the models effectiveness is the \todo{remove so-called}so
 &= \tfrac{\textnormal{True positives}}{\textnormal{True positives} +\frac{\textnormal{False positives}+\textnormal{False negatives}}{2}},
 \end{split}
 \end{equation}
-The final metric to present is the accuracy of the model (see Equation (\ref{eq:meth:accuracy}))\todo{bake}. Simply put the rate of correct predictions that are made. 
+The final metric to present is the accuracy of the model (see Equation (\ref{eq:meth:accuracy}))\todo{bake}.\todo{,} Simply put the rate of correct predictions that are made\todo{remove: that are made ?}. 
 
 \begin{equation}
 \label{eq:meth:accuracy}
@@ -43,7 +43,7 @@ The final metric to present is the accuracy of the model (see Equation (\ref{eq:
 
 Apart from the \todo{these metrics}metrics the evaluations include how long the calculations of an iteration takes, how many images that are passed through the classifier in the matching module and how many of the presented images that are relevant.   
 
-In order to make sure that the search space is explored and categorized correctly and at the same time see how well the model performs at classification, two different methods are used to calculate performance. \todo{In addition to the search space an evaluation set, in complete disjunction to the search space, is used. }To do this an evaluation set is used and the evaluation set is completely disjunct from the search space. The datasets for the benchmarks and how the are constructed is presented in Section \ref{sec:meth:eval:bench:dataset}. 
+In order to make sure that the search space is explored and categorized correctly and at the same time see how well the model performs at classification, two different methods are used to calculate performance. \todo{In addition to the search space an evaluation set, in complete disjunction to the search space, is used. }To do this an evaluation set is used and the evaluation set is completely disjunct from the search space. The datasets for the benchmarks and how the are constructed is presented in Section \ref{sec:meth:eval:bench:dataset}\todo{okey to ref forward?}. 
 
 The benchmark evaluations are measured in two different ways.
 \begin{enumerate}
@@ -66,9 +66,9 @@ The benchmark evaluations are measured in two different ways.
 	\end{itemize}   
 \end{enumerate}
 \medskip
-When measuring the performance of classifying the search space the metrics are the accumulated value of the performance so far during the search, meaning that after iteration 20 the performance is measured on the 500 images that have recieved an prediction by the proposed model.
+When measuring the performance of classifying the search space the metrics are the accumulated value of the performance so far during the search, meaning that after iteration 20 the performance is measured on the 500 images that have received an prediction by the proposed\todo{hard sentence?}.
 
-In order to retrieve a general trend, each evaluation setting is run 5 separate times and the metrics during these runs are presented with the maximum, the minimum and the geometric mean of each iteration. This allows the graphs that are presented in this section to show how much the metrics varied depending on different factors, such as image selection or how the decision boundary was fitted.
+In order to retrieve a general trend, each evaluation setting is run five separate times and the metrics during these runs are presented with the maximum, the minimum and the geometric mean of each iteration. This allows the graphs that are presented in this section to show how much the metrics varied depending on different factors, such as image selection or how the decision boundary was fitted.
 
 In all benchmarks, except for the one in Section \ref{sec:method:eval:param:features} where the ensemble is evaluated against its parts, the classifier is implemented as proposed in Section \ref{sec:method:proposed}\todo{classifier section.} and will have use all five feature descriptors. In addition; all benchmarks, with the exception of the one described in Section \ref{sec:method:eval:param:training} where training data is evaluated, the matching model will have a predefined training set of 5 relevant images and 50 non-relevant.
 
