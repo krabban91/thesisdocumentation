@@ -29,8 +29,15 @@ There is also a divide\todo{divide? Paint more.} made by the performance of the 
 \label{sec:hog_feature}
 \todo{more ref}
 Histogram of oriented gradients (HOG) is a feature descriptor used for object detection in the fields of image processing and computer vision. The idea being that a local object shape and appearance can be described by the distribution of intensity gradients, or edge directions. The HOG computes the first order gradient, as these capture contour and some texture information. This is all done on the locally dominant color channel which usually is the gray channel. Then a pooling method is used where the image is divided into a number of cells in where the 1-D\todo{1-D?} gradient orientation is acquired. The orientations are distributed in a fixed number of bins, or possible orientations. The different magnitudes determine the result of the gradient histogram. When these has been evaluated the cells are grouped within blocks which creates a film over the ``surface'' of the cells of the image thus creating a new normalized gradient oriented image. The block are set to overlap thus each cell are accounted for several different calculations over different blocks. The normalized blocks are referred as HOG descriptors. The descriptor is essentially the concatenation of these local histograms. The HOG is well suited for human detection according to \cite{dalal2005histograms}. 
-\todokahl{Det vore bra att illustrera vissa saker här med bilder. Kan ni inte t ex ge exempel på histogram}
 
+\fourfigure
+{figure/hog/hog_gray.png}
+{figure/hog/hog_extracted.png}
+{figure/hog/hog_gray_cat.png}
+{figure/hog/hog_extracted_cat.png}
+{Caption}
+{fig:imagetheory:hog} 
+\todo{write caption for figure.}
 
 \subsection{Global color histogram}
 \label{sec:gch_feature}
@@ -88,3 +95,10 @@ One of the hardest parts is to configure a CNN based on these layers to create a
 \label{sec:sob_feature}
 \todo{ref.}\todo{ycbcr is not mentioned here.}
 The set of edge detectors is a group of different methods that aim to identify strong shifts in images, specifically of image brightness, which could signify discontinuities of some sort in the image \cite{canny1986computational}. The name edge detection is based on the relevant points that signify a discontinuity which are called edges. There are two distinct methods commonly used in edge detection which are the \emph{search based} and the \emph{zero-crossing based}. The first method, called the search based, looks for the local directional maxima of the gradient magnitude, often using a first-order derivative expression to compute this. Examples of these are the Roberts, the Sobel  and the Prewitt operator. All edge detectors that all utilize convolutional masks in order to to calculate the gradient. Zero-crossing based, the other method, uses second order a derivative expression to find where there is a jump of values; the zero-crossing of the image. Example of these are the Laplacian operator, which often is used with an approximate convolutional mask \cite{jain1995machine}. The identification of these edges can be used to find more relevant objects and shapes in the images, which can be used to build predictions on \cite{maini2009study}. 
+
+\twofigure
+{figure/edge/Grey_cat.png}
+{figure/edge/Sobel_cat.png}
+{Caption}
+{fig:imagetheory:wavelet} 
+\todo{write caption for figure.}

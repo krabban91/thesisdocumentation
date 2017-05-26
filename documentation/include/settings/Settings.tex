@@ -267,20 +267,26 @@
 
 \hyphenpenalty=100000
 
+\newcommand{\twofigure}[4]{
+	\begin{figure}[H]
+		\centering
+		\begin{tabular}{c @{\tiny{ }} c}
+			\includegraphics[width=0.49205\textwidth]{#1} &
+			\includegraphics[width=0.49205\textwidth]{#2} 
+		\end{tabular}
+		\caption{#3}
+		\label{#4}
+	\end{figure}
+}
+
 \newcommand{\fourfigure}[6]{
-	\begin{figure}
+	\begin{figure}[H]
 		\centering
 		\begin{tabular}{c@{\tiny{ }} c@{\tiny{ }} c@{\tiny{ }} c}
-			%\includegraphics[width=0.39205\textwidth]{#1} &
-			%\includegraphics[width=0.39205\textwidth]{#2} 
-			%\includegraphics[width=0.29205\textwidth]{#1} &
-			%\includegraphics[width=0.29205\textwidth]{#2}
 			\includegraphics[width=0.24205\textwidth]{#1} &
 			\includegraphics[width=0.24205\textwidth]{#2} &
 			\includegraphics[width=0.24205\textwidth]{#3} &
 			\includegraphics[width=0.24205\textwidth]{#4} 
-			%\includegraphics[width=0.44205\textwidth]{#1} &
-			%\includegraphics[width=0.44205\textwidth]{#2}
 		\end{tabular}
 		\caption{#5}
 		\label{#6}
