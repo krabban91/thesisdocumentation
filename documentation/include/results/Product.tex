@@ -1,0 +1,39 @@
+% !TEX root = ..\..\main.tex
+
+\section{System presentation}
+\label{sec:res:prod}
+In order to incorporate the model described under Section \ref{sec:method:proposed} and to handle and store all the different parameters that are explained the system was designed to be workspace oriented. From there different user interfaces could be created in order to make interaction easier. Interfaces such as views for the intended usage but also views for benchmarking and tweaking. Independently of how the workspace was used it was accompanied with a lot of different parameters that define the current purpose. These parameters could be set in the creation of a project and barely change later on, and were simply stored in a configuration file. 
+
+\quadfigure
+{include/interface/properties0.PNG}
+{include/interface/properties1.PNG}
+{include/interface/properties2.PNG}
+{include/interface/properties3.PNG}
+{The dialog to create a new project. In this case the user has selected the label oriented setting, which causes the searching mechanism to appear as in Figure \ref{fig:result:prod:labeled}.}
+{fig:res:prod:prop}
+
+By making each project workspace oriented it did not only become easier to specify the different settings of the model but also organized the selection of different feature descriptors and where different data sets reside. When a user creates a new workspace the dialog in Figure \ref{fig:res:prod:prop} is presented. This dialog is used to make all intended configurations of the workspace. The dialog requires that at least one feature descriptor is selected, that the data folder (the directory containing the search space) and the project folder are defined. If the project was used for benchmarking and label oriented, as mentioned in Section \ref{sec:method:rf_simulation}, the configuration for that would be set there. When the workspace is configured correctly the image search can be initiated. 
+
+In Section \ref{sec:method:proposed:features} the feature extraction module is designed to extract necessary features on the fly, but in accordance with how evaluations are described to be performed in Section \ref{sec:meth:evaluation} a view for feature extraction was needed. This view is a control panel that allows the user to add images to the search space as well as the predefined sets and the evaluation set that are used. By doing so the feature descriptors are extracted and the feature extraction module adds them to their respective database. The view (see Figure \ref{fig:result:prod:extraction}) also gives the user general information about the workspace configuration such as which descriptors that are used whilst searching, how many images in the search space that has and has not been presented to the user and how much material that the different sets contain.
+
+\singlefigurenear
+{include/interface/extract_small.PNG}
+{The feature extraction interface. Here all five feature descriptors are used when searching. One can also note that 200 images have already been presented to the user.}
+{fig:result:prod:extraction}
+{0.5}
+
+The only information that the user recieves while searching when a workspace is configured to be label oriented is a log of each iteration. The label oriented search view can be seen in Figure \ref{fig:result:prod:labeled} and the search interface that is designed for the intended use and where relevance feedback is retrieved from a user can be seen in Figure \ref{fig:result:prod:search}. In this view the model presents 25 images to the user every iteration. As mentioned in Section \ref{sec:method:proposed:rf} it is of importance to present the images that are useful to learn the intended concept as well as present images from that concept. In this case these are 20 images that are the most relevant according to the model (\emph{top-20}) as well as 5 images that are the least probable to be relevant (\emph{bottom-5}). The effect of presenting different sets of images every iteration can be observed in Section \ref{sec:res:learning}.
+
+\singlefigurenear
+{include/interface/labelled_search0.PNG}
+{The label oriented search interface. Only input to start and stop the search together with a log of the results is necessary.}
+{fig:result:prod:labeled}
+{0.5}
+
+\singlefigurenear
+{include/interface/eighth_it.PNG}
+{The interactive search interface during the relevanc feedback part of a search iteration. Notice how the \emph{top 20} results have images on both sides of the decision boundary. This normally happens after a couple of iterations. Images marked red are corrections made by the user and the images marked blue are the ones that the user considers that the model predicted correctly.}
+{fig:result:prod:search}
+{0.5}
+
+

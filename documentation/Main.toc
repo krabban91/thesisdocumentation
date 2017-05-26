@@ -1,0 +1,83 @@
+\select@language {english}
+\contentsline {chapter}{\numberline {1}Introduction}{1}{chapter.1}
+\contentsline {section}{\numberline {1.1}Problem definition}{1}{section.1.1}
+\contentsline {section}{\numberline {1.2}Goals}{2}{section.1.2}
+\contentsline {section}{\numberline {1.3}Delimitations}{2}{section.1.3}
+\contentsline {section}{\numberline {1.4}Contributions}{2}{section.1.4}
+\contentsline {section}{\numberline {1.5}Organization of thesis}{3}{section.1.5}
+\contentsline {chapter}{\numberline {2}Theory}{5}{chapter.2}
+\contentsline {section}{\numberline {2.1}Content-based image retrieval}{5}{section.2.1}
+\contentsline {section}{\numberline {2.2}Relevance feedback}{5}{section.2.2}
+\contentsline {section}{\numberline {2.3}Image formats}{6}{section.2.3}
+\contentsline {subsection}{\numberline {2.3.1}Hue, saturation, value}{7}{subsection.2.3.1}
+\contentsline {subsection}{\numberline {2.3.2}YCbCr}{7}{subsection.2.3.2}
+\contentsline {section}{\numberline {2.4}Datasets}{7}{section.2.4}
+\contentsline {subsection}{\numberline {2.4.1}Corel-1000}{8}{subsection.2.4.1}
+\contentsline {subsection}{\numberline {2.4.2}Places205}{8}{subsection.2.4.2}
+\contentsline {chapter}{\numberline {3}Image analysis theory}{9}{chapter.3}
+\contentsline {section}{\numberline {3.1}Visual features}{9}{section.3.1}
+\contentsline {section}{\numberline {3.2}Feature detectors and descriptors}{9}{section.3.2}
+\contentsline {subsection}{\numberline {3.2.1}Histogram of oriented gradients}{10}{subsection.3.2.1}
+\contentsline {subsection}{\numberline {3.2.2}Global color histogram}{10}{subsection.3.2.2}
+\contentsline {subsection}{\numberline {3.2.3}Wavelet transform}{11}{subsection.3.2.3}
+\contentsline {subsection}{\numberline {3.2.4}Convolutional neural network activations}{11}{subsection.3.2.4}
+\contentsline {subsubsection}{\numberline {3.2.4.1}Convolutional neural networks}{12}{subsubsection.3.2.4.1}
+\contentsline {subsubsection}{\numberline {3.2.4.2}Network architecture}{12}{subsubsection.3.2.4.2}
+\contentsline {subsection}{\numberline {3.2.5}Edge detection histogram}{13}{subsection.3.2.5}
+\contentsline {chapter}{\numberline {4}Machine learning theory}{15}{chapter.4}
+\contentsline {section}{\numberline {4.1}Supervised learning}{15}{section.4.1}
+\contentsline {section}{\numberline {4.2}Classification}{16}{section.4.2}
+\contentsline {section}{\numberline {4.3}Support vector machines}{16}{section.4.3}
+\contentsline {subsection}{\numberline {4.3.1}Kernels}{17}{subsection.4.3.1}
+\contentsline {section}{\numberline {4.4}Ensemble learning}{18}{section.4.4}
+\contentsline {subsection}{\numberline {4.4.1}Deep support vector machine}{18}{subsection.4.4.1}
+\contentsline {chapter}{\numberline {5}Method}{21}{chapter.5}
+\contentsline {section}{\numberline {5.1}Related approaches}{21}{section.5.1}
+\contentsline {section}{\numberline {5.2}Proposed model}{21}{section.5.2}
+\contentsline {subsection}{\numberline {5.2.1}Relevance feedback module}{22}{subsection.5.2.1}
+\contentsline {subsection}{\numberline {5.2.2}Matching module}{23}{subsection.5.2.2}
+\contentsline {subsubsection}{\numberline {5.2.2.1}Classifier}{24}{subsubsection.5.2.2.1}
+\contentsline {subsubsection}{\numberline {5.2.2.2}Training data}{24}{subsubsection.5.2.2.2}
+\contentsline {subsubsection}{\numberline {5.2.2.3}Exploring search space}{25}{subsubsection.5.2.2.3}
+\contentsline {subsection}{\numberline {5.2.3}Feature extraction module}{26}{subsection.5.2.3}
+\contentsline {subsubsection}{\numberline {5.2.3.1}Histogram of oriented gradients}{27}{subsubsection.5.2.3.1}
+\contentsline {subsubsection}{\numberline {5.2.3.2}Global color histogram}{27}{subsubsection.5.2.3.2}
+\contentsline {subsubsection}{\numberline {5.2.3.3}Wavelet feature transform}{27}{subsubsection.5.2.3.3}
+\contentsline {subsubsection}{\numberline {5.2.3.4}Convolutional neural network activations}{27}{subsubsection.5.2.3.4}
+\contentsline {subsubsection}{\numberline {5.2.3.5}Sobel edge detection histogram}{28}{subsubsection.5.2.3.5}
+\contentsline {section}{\numberline {5.3}Evaluation of model}{28}{section.5.3}
+\contentsline {subsection}{\numberline {5.3.1}Relevance feedback simulation}{28}{subsection.5.3.1}
+\contentsline {subsection}{\numberline {5.3.2}Parameter benchmarks}{29}{subsection.5.3.2}
+\contentsline {subsubsection}{\numberline {5.3.2.1}Datasets for benchmark}{31}{subsubsection.5.3.2.1}
+\contentsline {subsubsection}{\numberline {5.3.2.2}Classifier learning method}{31}{subsubsection.5.3.2.2}
+\contentsline {subsubsection}{\numberline {5.3.2.3}Limiting search space}{32}{subsubsection.5.3.2.3}
+\contentsline {subsubsection}{\numberline {5.3.2.4}Feature descriptors}{32}{subsubsection.5.3.2.4}
+\contentsline {subsubsection}{\numberline {5.3.2.5}Training data}{33}{subsubsection.5.3.2.5}
+\contentsline {subsection}{\numberline {5.3.3}Study comparisons}{34}{subsection.5.3.3}
+\contentsline {subsubsection}{\numberline {5.3.3.1}The Corel-1000 evaluation}{34}{subsubsection.5.3.3.1}
+\contentsline {chapter}{\numberline {6}Results}{37}{chapter.6}
+\contentsline {section}{\numberline {6.1}Parameter benchmarks}{37}{section.6.1}
+\contentsline {subsection}{\numberline {6.1.1}Classifier learning method}{37}{subsection.6.1.1}
+\contentsline {subsubsection}{\numberline {6.1.1.1}Evaluation set}{37}{subsubsection.6.1.1.1}
+\contentsline {subsubsection}{\numberline {6.1.1.2}Search space}{40}{subsubsection.6.1.1.2}
+\contentsline {subsection}{\numberline {6.1.2}Limiting search space}{43}{subsection.6.1.2}
+\contentsline {subsubsection}{\numberline {6.1.2.1}Evaluation set}{43}{subsubsection.6.1.2.1}
+\contentsline {subsubsection}{\numberline {6.1.2.2}Search space}{44}{subsubsection.6.1.2.2}
+\contentsline {subsection}{\numberline {6.1.3}Feature descriptors}{49}{subsection.6.1.3}
+\contentsline {subsubsection}{\numberline {6.1.3.1}Evaluation set}{49}{subsubsection.6.1.3.1}
+\contentsline {subsubsection}{\numberline {6.1.3.2}Search space}{50}{subsubsection.6.1.3.2}
+\contentsline {subsection}{\numberline {6.1.4}Training data}{53}{subsection.6.1.4}
+\contentsline {subsubsection}{\numberline {6.1.4.1}Evaluation set}{54}{subsubsection.6.1.4.1}
+\contentsline {subsubsection}{\numberline {6.1.4.2}Search space}{55}{subsubsection.6.1.4.2}
+\contentsline {section}{\numberline {6.2}Study comparisons}{57}{section.6.2}
+\contentsline {subsection}{\numberline {6.2.1}The Corel-1000 evaluation}{57}{subsection.6.2.1}
+\contentsline {chapter}{\numberline {7}Conclusion}{61}{chapter.7}
+\contentsline {section}{\numberline {7.1}Discussion of results}{61}{section.7.1}
+\contentsline {section}{\numberline {7.2}Future work}{62}{section.7.2}
+\contentsline {subsection}{\numberline {7.2.1}Model improvements}{63}{subsection.7.2.1}
+\contentsline {subsubsection}{\numberline {7.2.1.1}Scaling to bigger datasets}{63}{subsubsection.7.2.1.1}
+\contentsline {subsubsection}{\numberline {7.2.1.2}Improvements to the relevance feedback loop}{63}{subsubsection.7.2.1.2}
+\contentsline {subsubsection}{\numberline {7.2.1.3}Selection of feature descriptors}{64}{subsubsection.7.2.1.3}
+\contentsline {subsection}{\numberline {7.2.2}Miscellaneous usage areas}{64}{subsection.7.2.2}
+\contentsline {subsubsection}{\numberline {7.2.2.1}Dataset improvement}{64}{subsubsection.7.2.2.1}
+\contentsline {chapter}{\numberline {A}Complete list of categories in the dataset MIT places205}{I}{appendix.A}

@@ -1,0 +1,17 @@
+% !TEX root = ..\..\main.tex
+
+\section{Evaluation of model}
+\label{sec:meth:evaluation}
+
+Performing evaluations in larger scales\todo{on a larger scale} often demand that labeled datasets are used\todo{``,''} and\todo{and =>whilst} the proposed model is designed to have a user standing by after\todo{remove after} each iteration. This section covers how these evaluations were performed in order to achieve the results presented in Chapter \ref{chapter:results}.
+
+\todo{The feature extraction module, Section \ref{sec:method:proposed:features}, is described as }In Section \ref{sec:method:proposed:features} the feature extraction module is described as a system that will extract the necessary feature descriptors for material evaluations on the fly. But to reduce the time spent evaluating \todo{from here to end of sentence => ``the feature descriptors of the search space are extracted before all evaluations begin.''} and to avoid removing all the feature descriptors prior to every new evaluation the features were extracted before the exploration of the search space began. 
+
+The evaluation is divided into two parts: How benchmarks are performed in order to achieve the optimal settings for the proposed model and how the model compares with other CBIR studies. 
+Since the model requires that a user performs the arduous task of peer-reviewing the predictions of the model every iteration, the simulation of a user was created in order to retrieve data from evaluations.
+
+\input{include/method/evaluation/rf_sim}
+\input{include/method/evaluation/parameters}
+\input{include/method/evaluation/studycompare}
+
+

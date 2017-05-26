@@ -1,0 +1,90 @@
+% !TEX root = ..\main.tex
+\chapter{Image analysis theory}
+\label{chapter:imagetheory}
+
+This chapter introduces and explains how images can be represented in more ways than the rasterized formats that simply consists of the pixel data as in compression standards such as .jpg and .png. It \todo{rephrase} starts of by introducing image compression, then continue to describe what features and what feature descriptors are  as well as the theory behind the feature descriptors in the scope of the thesis\todo{scopr of the thesis, works?}.
+
+%\section{Image compression}
+%\label{sec:image_comp}
+%\todokahl{Behövs verkligen detta avsnitt?}
+%\todo{Håller nog med Kahl. Finns bätre sätt att motivera resizing.}
+%For regular images the size can be much larger and the time it takes to extract features becomes unrealistically for large datasets. The different ways in how one can compress the image have\todo{,} according to Juan M. Banda et al. \cite{banda2014image},\todo{something is missing, rephrase} the various techniques have all a low accuracy loss when compressing all the way down to JPEG 10\% which have 99.2\% space saving. The accuracy loss range from 0.1\% with no compression ratio change to 2.5\% for 1/100 compression ratio change. The paper make use of the SDO database, which is a dataset contributed by NASA. Based on this to be able to handle large data sets with no regard to the image quality all images are resized to be $256*256$ pixels in dimensions\todo{rephrase, be clearer}. Depending on the feature extractor at hand the images color data will also be changed to a corresponding color range or different string be omitted as e.g. the chroma\todo{luminance} strings in YCbCr in Sobel edge detector. 
+
+\section{Visual features}
+\label{sec:image_features}
+Features in image processing are embedded information in either the picture itself or the meta-data concerning the picture. These features are extracted and used to solve various problems in computer vision, machine learning and pattern recognition. In this thesis only\todo{wording} features embedded in images will be taken into consideration and the descriptors will be of the global type which emphasizes on the features relevant over the whole of image and not on the interest points as in local feature descriptors. \todo{theory? }
+
+There are myriads of methods to extract features from an image and which one that suits the problem at hand varies. Commonly used features for CBIR are those that describe color, texture and shape. When the features have been extracted there is the choice\todo{there is the choice?} to describe them in different ways and usually\todo{usually?} the output of these are so called feature vectors. The length of the feature vector varies, depending on the image being processed, the method used for description and the detail in which the features are extracted. 
+
+\section{Feature detectors and descriptors}
+\label{sec:feature_descriptors}
+Feature detectors are usually built towards detecting either global features or local features. Global feature detectors are often color or texture oriented and try\todo{tries? är osäker} to describe the picture as a whole\todo{raphrase}. \todo{Long sentence. Hard to maintain focus}These are good at identifying similar images but have a hard time to distinguish between foreground and background of the image as they have focus on the total image qualities and usually fail to find local nuances and differences. They are often built to output a feature vector with focus on some property of the image involving all the pixels. In contrast the local feature detectors focus on keypoints in the image and try to describe these. \todo{this leads to... sentence strange.}This leads to local feature detectors having edge occluding parts of the image as objects and are often used to look for similar, or same, objects between images. The result is often several vectors representing the points of interest in the image. These attributes come with a cost, local feature detectors are often expensive in terms of computational power and data storage \cite{hassaballah2016image}. \\
+
+A Feature descriptor is used when the interest points have been identified, or detected as previously stated. The descriptor creates a set of vectors based on this information which can be used in the proposed retrieval model. In image processing and image analysis one uses feature descriptors to facilitate the transfer from an abundance of features that are derived from images to a subset or transformation of these features to create a more manageable dataset. Depending on the scope of the project the raw features one would get from the feature descriptors can become too large to handle and work with. To minimize this problem, the feature descriptors can be said to carry out dimensionality reduction on the data. Without any form of reduction of the actual information size there would be a large requirement on memory and computational power. A risk of overfitting also becomes relevant with to much focus on large swathes of features in the relevant images which makes it harder to find images that are alike\todo{rephrase, having same concept or objects but not alike}. \\
+
+There is also a divide\todo{divide? Paint more.} made by the performance of the feature descriptors. If a feature descriptor has a precision just above random chance it is called a weak learner, this can be a descriptor that focuses on different color variation or edges in an image while trying to discern some higher grade of concept. A strong learner in contrast is a feature descriptor with a much higher precision which on its own can discern a majority of the images, this can e.g. be a deep convolutional neural network. 
+
+
+\subsection{Histogram of oriented gradients}
+\label{sec:hog_feature}
+\todo{more ref}
+Histogram of oriented gradients (HOG) is a feature descriptor used for object detection in the fields of image processing and computer vision. The idea being that a local object shape and appearance can be described by the distribution of intensity gradients, or edge directions. The HOG computes the first order gradient, as these capture contour and some texture information. This is all done on the locally dominant color channel which usually is the gray channel. Then a pooling method is used where the image is divided into a number of cells in where the 1-D\todo{1-D?} gradient orientation is acquired. The orientations are distributed in a fixed number of bins, or possible orientations. The different magnitudes determine the result of the gradient histogram. When these has been evaluated the cells are grouped within blocks which creates a film over the ``surface'' of the cells of the image thus creating a new normalized gradient oriented image. The block are set to overlap thus each cell are accounted for several different calculations over different blocks. The normalized blocks are referred as HOG descriptors. The descriptor is essentially the concatenation of these local histograms. The HOG is well suited for human detection according to \cite{dalal2005histograms}. 
+\todokahl{Det vore bra att illustrera vissa saker här med bilder. Kan ni inte t ex ge exempel på histogram}
+
+
+\subsection{Global color histogram}
+\label{sec:gch_feature}
+
+A color histogram is a representation of the color distrubution in an image. The color histogram method counts the number of pixels with similar attributes and store them in a number of bins. There are no specific sizes for the bins, though there is a max size based on current color range used. The size used is dependent on the performance of using less bins in contrast to computational cost of using more bins\todo{overfitting?}. In image analysis it is common to use HSV for this histogram, which would result in three dimensions of bins, one for each color channel, and a max of 256 bins in each HSV color range. When calculating a global color histogram (GCH) one does not take smaller patches of the image and calculate the concentration of information locally, instead it is calculated over the image as a whole. This approach can be insensitive where the objects might be similar but the color characteristics are. Two completely different images can still contain the same GCH values due to that the images have similar color settings.
+
+
+\subsection{Wavelet transform}
+\label{sec:wlt_feature}
+
+In this project a Haar Wavelet transform was implemented, the simplest of wavelets. Haar-like features are a type of digital image features which are used in object recognition \cite{pavani2010haar}. The wavelet was implemented by first taking the differences and means of each pixel to its neighbors. This is done in a manner \todo{in a manner that for the?}that for the difference each pixel is used once in horizontal calculations and once in vertical calculations, the values are then divided into the different rectangles. The signal is decomposed into a subset of signals representing different elements, approximations of the image and intensities in the different directions and orientations. So for each time the wavelet transform the image a couple of smaller ones are created with the information of with a dimensionality of 2. This makes it possible for a wavelet with an image of size $256*256$ to be minimized 8 times ($2^8 = 256$).
+
+\fourfigure
+{figure/WT0levels.png}
+{figure/WT1levels.png}
+{figure/WT2levels.png}
+{figure/WT3levels.png}
+{Caption}
+{fig:imagetheory:wavelet} 
+\todo{write caption for figure.}
+%Is a time-frequency transformation often used for wavelet compression which is a \todo{Continue. Missing text.}
+
+% Used to encode local appearance of objects which result in 2 or more rectangular regions enclosed into a template. 
+
+% In our extractor 3 levels are used and as such, one get $1 + 9$ different values to create meta data from. These matrices (scalar for the first?) a set of bin strategies are used. in the different matrices are first absolute valued and summed as well as square rooted out the sum of the square of the absolute values minus the mu from the previous calculation. """" These results in rather few values so to create a larger search space a distribution is generated from these values to function as a larger set of similar values. """"
+
+\subsection{Convolutional neural network activations}
+\label{sec:vgg_feature}
+
+The field of Artificial neural networks emerged with the McCulloch and Pitts neuron in 1943 \todokahl{Ge referens}. The idea was to simulate the human brain, where there are about $10^{11}$ nerve cells, or neurons, that through a symphony of signals communicate information from and to other neurons. This is achieved by creating nodes for the neurons and edges interconnecting the different neurons to simulate the axons and dendrites. Dendrites works as a form of input to the neurons which have different intensities in their signals, in artificial neural networks modelled using weights. The neuron, or soma, then sums up the inputs into some output\todo{flow, rephrase} which then the axon signals out to other neuron or as the final output of the system. From the basis of this simple adaptation the simulated neural network is created. \todo{split sentence in more lines}In the simplest form a single layer of neurons with some form of inputs, valued with weights, which in the animalic brain is the intensity of the signal measured in frequency of the firing of axons, which then transforms the data into some form of response, or output. There are several methods that have been created in its wake with certain functionalities\todo{examples of this}. 
+
+\subsubsection{Convolutional neural networks}
+
+In this thesis a subset of the field of artificial neural networks is used; convolutional neural networks (CNNs). A CNN is a type of a feedforward neural network  that tries to simulate the animal visual cortex. A feedforward neural network is an artificial neural network wherein the connections between the units do not form any cycles or loops. A multilayer feedforward network is composed by, an input layer, an output layer and zero or more ``hidden'' layers. In this simple illustration the first layer, the input layer, receives the first number of inputs to be processed by the neurons. this is then sent to the next layer as inputs and the chain continues until the final layer outputs the final result for the whole neural network. 
+
+\subsubsection{Network architecture}
+\todo{Is this a good title?}
+The architecture varies a lot between different designs\todo{go on? point is missing.}. Although, the building blocks are convolutional layers, pooling layers and (the more commonly used) fully-connected layers. They are variations of multilayer perceptrons which are designed to use minimal amounts of preprocessing. The CNNs are constructed by using multiple components of distinct design\todo{check this sentence again.}, some of the most commonly used ones are the following. \\
+
+\textbf{\emph{The convolutional layer}} is the backbone of \todo{a } CNN. They are composed of a set of learnable filters, aka kernels, with their distinct size of receptive fields. They traverse the whole area of the image, convolved across the height and width of the input, all the while computing the dot product. \todo{Partial sentence}This produces a 2D activation map for each filter, which are all stacked along the depth which creates the output matrix, the volume for the convolutional layer.\todo{sentence. volume out of nowhere} \\
+\textbf{\emph{The pooling layer}} is essentially a non-linear down-sampling of the input image. This is done by some algorithm where max pooling is one of the most commonly used ones. It splits the input into several smaller non-overlapping rectangles and then outputs the max value from these regions. The idea is to periodically insert pooling layers in between the convolutional layers, in so doing reducing the number of parameters as the size decreases and thus lessen the amount of computation\todo{needed for the/of} in the network. This also helps to reduce the risk of overfitting. \\
+\todo{the } \textbf{\emph{The rectifier linear unit}}, known as ReLU, which applies a non-saturating activation function to increase the nonlinear properties of the network. This is done without directly affecting the receptive fields of the convolutional layer. The general idea is to reduce the time it takes to train the network while still retain the generalizing nature of the network.\todo{add what it does. 0 if x less than 0, 1 otherwise.}\todo{elaborate} \\
+\textbf{\emph{The fully-connected layer}} \todo{strange sentence} is the last couple of layers are usually built as fully connected layers\todo{rephrase}. Layers have full connection between the each other meaning that the activations in previous layers connects to all neurons in the next layer. These layers constitute the high-level reasoning of the network. \\
+\textbf{\emph{The softmax activation function}} is normally used to produce the final output of the CNN where a loss function is set to determine how to penalize the network if prediction deviate from actual labeling.\todo{elaborate} \\
+
+One of the hardest parts is to configure a CNN based on these layers to create a well versed and functioning network. In this thesis the VGG-16 network is used\todo{cite vgg paper}. How the VGG-16 is built by using all these different layers in their convolutional neural network is shown to the left in Figure \ref{fig:imagetheory:vgg16}. A method called transfer learning is applied where one use pre-trained\todo{rephrase} CNN models and then just remove the last output layer, and extract the features directly from the fully-connected layers \cite{koskela2014convolutional}. To be able to use the network for the purpose of a feature descriptor modifications were made. The the final fully-connected layer as well as the softmax layer, the loss layer, are both omitted as can be seen in Figure \ref{fig:imagetheory:vgg16}. 
+
+\singlefigure
+{figure/vgg_architecture.png}
+{Top: A simplified visualization of the VGG-16 CNN. Bottom: The modification done in this thesis.}
+{fig:imagetheory:vgg16}
+{0.9}
+
+\subsection{Edge detection histogram}
+\label{sec:sob_feature}
+\todo{ref.}\todo{ycbcr is not mentioned here.}
+The set of edge detectors is a group of different methods that aim to identify strong shifts in images, specifically of image brightness, which could signify discontinuities of some sort in the image \cite{canny1986computational}. The name edge detection is based on the relevant points that signify a discontinuity which are called edges. There are two distinct methods commonly used in edge detection which are the \emph{search based} and the \emph{zero-crossing based}. The first method, called the search based, looks for the local directional maxima of the gradient magnitude, often using a first-order derivative expression to compute this. Examples of these are the Roberts, the Sobel  and the Prewitt operator. All edge detectors that all utilize convolutional masks in order to to calculate the gradient. Zero-crossing based, the other method, uses second order a derivative expression to find where there is a jump of values; the zero-crossing of the image. Example of these are the Laplacian operator, which often is used with an approximate convolutional mask \cite{jain1995machine}. The identification of these edges can be used to find more relevant objects and shapes in the images, which can be used to build predictions on \cite{maini2009study}. 

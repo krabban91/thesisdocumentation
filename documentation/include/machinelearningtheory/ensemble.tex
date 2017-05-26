@@ -1,0 +1,30 @@
+% !TEX root = ..\..\main.tex
+
+\section{Ensemble learning}
+
+Ensemble learning methods use a setup of different learning methods which are then combined in to achieve a better predictive behavior than if using a single one. There is no guarantee that the result will be better with only combining several different\todo{wording} methods though. There are several things to be taken into consideration. The different classifiers have to show some form of diversity in their estimation otherwise it will be more like doing the same calculation over and over\todo{relevance? Does not support the deep svm.}. If there would be one dataset and several classifiers that are designed in the same fashion they would have to be trained on different training sets to create some form of diversity \cite{cunningham2000diversity}\cite{krogh1995neural}. A more applicable approach is to use different methods of classification. One can use the Condorcet jury theorem as an example of this methodology, \textit{``If each voter has a probability p of being correct and the probability of a majority of voters being correct is P, then p>0.5 implies P>p. In the limit, P approaches 1, for all p>0.5, as the number of voters approaches infinity''} \cite{cord2008machine}\cite{grofman1983thirteen}.
+There come great potentials with the use of several different classifiers. \todo{rephrase}The relevant\todo{the relevant space have? what?} space have potential to be much more based on each and\todo{each and every one single one?} everyone single one of the classifiers notation. This because a single classifier  might get a part of the solution in linear case while the use of several can be dimensioned to be able to solve higher dimensional problems. \todo{This is not in line with anything we do. They train on same data but with different learners. all have same targets.}The SVMs should not be over the same datasets since they in that case will have the same errors and thus the SVMs should focus on different targets and create their respective prediction spaces to reduce the possibility the errors are correlated. There are different ways how to \cite{kim2003ensembleSVM}. 
+
+
+\subsection{Deep support vector machine}
+\label{sec:deepSVM}
+A \emph{Deep support vector machine} (Deep SVM) is model aimed to enhance the performance by using multiple SVMs by positioning them in layers, inspired by deep belief networks \cite{hinton2006reducing} and other stacking generalization approaches using SVMs \cite{chen2009using}.
+The idea is to build layers of SVMs where the output of the previous layer becomes the input of the next layer. The use of more layers give new possibilities in classifications which cannot be achieved with single, however complex, kernel functions. One example of this is the XOR function which can not be solved with a single SVM, but can be when using layers of SVMs. The structure can be perceived in Figure \ref{fig:mltheory:ensemble:deepsvmclassify}, where the initial box, presenting the different feature vectors to the classifying system. The first layer of SVMs receives the feature vectors as input and the output of the first layer becomes the input of the following layer. The number of classifiers in the first layer is only restricted by the number of feature vectors presented to the system, which is an arbitrary number. The final layer, in the figure called ``Meta SVM'', presents the final result of the system\todo{elaborate?}. 
+
+\singlefigure
+{figure/classify.png}
+{A simplified sketch of how a Deep SVM classifies data. The test data is passed through the first order classifiers and the output of those is the input for the Meta SVM. The output of the Meta SVM is the distance from the decision boundary that the entire classification system has created.}
+{fig:mltheory:ensemble:deepsvmclassify}
+{1}
+
+The training of a Deep SVM is performed in several steps, as presented in Figure \ref{fig:mltheory:ensemble:deepsvmtrain}. First step is to perform a K-fold split on the training data, $T=\{T_1\cup...\cup T_K\}$, that is applied to the classification system. All the first layer classifiers (first order classifiers) are then trained with the training subset $T_1^c=T\setminus T_1$, in order to use the remaining subset of the training set $T_1$ as a test set. The output of the first order classifiers then becomes the training subset for the second order classifier $T_{1_{meta}}$. This process is repeated K times to produce the full training set for the second order classifier $T_{meta}$. When the K-fold process has been completed the first and second order classifiers can be trained with the full training set $T$ and $T_{meta}$ respectively. The process of training a single SVM is described in Section \ref{sec:mltheory:svm}.  
+
+This setup takes much more time to train than when just using a single SVM. The reward is an estimator that is capable of a more abstract level of classification.
+
+Which kernel functions that the different classifiers have in the Deep SVM does not matter since each unit is independent of the other ones. The selection of kernels in the first order classifiers depend on which feature vectors that they have as input. The classifier at the second layer, however, separates an $n$ number of dimensions if there are $n$ classifiers in the first layer since they have all produced an estimated distance to a decision boundary. Due to the low level of dimensions and the values of the input vector should be positive if a point is predicted correctly, a linear kernel is often possible to apply.
+
+\singlefigure
+{figure/train_meta_data.png}
+{A simplified sketch of how a Deep SVM is trained. The Meta SVM needs approximations of how the first order classifiers treats the training data in order to fit its own decision boundary. Besides from that the layers can be trained in parallell.}
+{fig:mltheory:ensemble:deepsvmtrain}
+{1}

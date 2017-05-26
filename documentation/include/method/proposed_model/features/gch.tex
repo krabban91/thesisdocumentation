@@ -1,0 +1,12 @@
+% !TEX root = ..\..\..\..\main.tex
+\subsubsection{Global color histogram}
+\label{sec:meth:featextr:gch}
+
+The Global color histogram is implemented as proposed in \cite{wang2015new}, with a few modifications. First the color range of the image is changed to Hue, Saturation and Value\todo{or HSV => (HSV).} or HSV, \todo{The color channels are covered in Sec...}the color range is covered in Section \ref{sec:HSV_theory}\todo{remove ``, instead of any pre-existing color range, generally RGB''}, instead of any pre-existing color range, generally RGB. Each of these\todo{the} color channels are\todo{is} then summarized for their individual different \todo{strange sentence. }number to sort the intensities of the values in a number of pre-determined bins. These numbers can be set to different values based on utility\todo{utility?}. In this project they are set as 24, 12, 6 respectively, instead of the 8, 4 and 2 which are used in Wang et al. implementation\todo{cite again. }. These bins \todo{Big leap. The reader needs help to go from 24,12,6 to 24*12*6=1728.}are divided by the total number of interest points, or maximum possible value to get the values in the range of the SVM as;
+\begin{equation}
+H(i) = \frac{n_i}{N} \mbox{ where } (i = 1, 2, ..., 1728),
+\end{equation}
+where $n_i$ number of interest points, N is the total number of interest points and i\todo{i is explained here and in equation. } indicates the possible combinations of the bins. $H$ \todo{something is missing.}are used to create \todo{replace following with: one of the feature descriptors used by the classifier described in Section \ref{sec:method:proposed:matching:classifier}.}the feature vector for the SVM of Section \ref{sec:gch_feature}.
+
+%To generate the Color histogram first the image is changed into HSV color spectra to have a color range that is more akin to the human perception of its environment. Each of the components of HSV are divided into a number of bins in each of the three representations where the number of values in the different ranges are summed together. To normalise the data and make it suggestible to the SVM the number of interest point in each bin is divided with the total amount of interest points in the image. The resulting values form the feature vector of the Color Histogram. 
+

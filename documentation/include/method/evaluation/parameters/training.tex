@@ -1,0 +1,25 @@
+% !TEX root = ..\..\..\..\main.tex
+\subsubsection{Training data}
+\label{sec:method:eval:param:training}
+
+Is it necessary to provide initial training data to the model in order to improve classification correctness \todo{before learning => in order to learn}before learning a specific concept? \todo{And if => If}And if so, how much difference would it make? This evaluation is designed to answer these two questions. A comparison will be made between only having a predefined training set, only using the data that is provided from the user during iterations and a combination of the two. On top of this, the size of the pretrained data set was also evaluated. 
+
+The different settings during the training data evaluation were 
+\begin{enumerate}
+	\item to train the classifier once in the beginning with given data and use the same classifier until the search space is empty. 
+	\item to train the classifier every iteration with data given by relevance feedback together with a predefined training set. 
+	\item to train the classifier every iteration with data given by relevance feedback only.
+\end{enumerate}
+\medskip
+The predefined training sets were assembled by different number of relevant and non-relevant images. The different sets consist of
+\begin{enumerate}[label=\Alph*.]
+	\item 5 relevant and 5 non-relevant images.
+	\item 5 relevant and 50 non-relevant images.
+	\item 22 relevant and 484 non-relevant images (thus giving it the same relevance ratio as the search space).
+	\item 250 relevant and 250 non-relevant images (thus making it contain more relevant images than the search space does).
+\end{enumerate}
+\medskip
+Since there are no good and concise ways to refer to these different settings, they will in this section be referred to by their index in these two lists. The setting that only uses a predefined data set of 5 relevant images and 50 non-relevant images is referred to as \todo{remove emph}\emph{setting 1B} and the setting that solely uses data given by relevance feedback is referred to as \todo{remove emph}\emph{setting 3}.
+
+As mentioned in Section \ref{sec:method:proposed:matching:training} the model uses at most 500 images \todo{taken from the relevance feedback as training data} from the relevance feedback data. Those 500 images are intended to be as close to evenly divided between relevant and non-relevant images as possible. Since the search space consists of 200 relevant images and 4400 non-relevant images the training data in \todo{remove emph}\emph{setting 3} consists of at most 200 relevant images and 300 non-relevant while \todo{remove emph}\emph{setting 2D} will have at most 450 relevant images and 550 non-relevant images in its training set. 
+\todo{This since => Since}This since the setting combines the two training sets.

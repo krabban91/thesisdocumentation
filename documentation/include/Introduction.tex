@@ -1,0 +1,64 @@
+% CREATED BY DAVID FRISK, 2016
+% !TEX root = ..\main.tex
+\chapter{Introduction}
+\label{chapter:intro}
+\TODO{Generella kommentarer från examinatorn. Kolla innan vi skicka vidare rapporten}
+%\todokahl{Kan ni inte lägga in ett exempel (typ use case) i "introduction" med bilder som ni kan referera till? Det behöver ni säkert ändå för er presentation.}
+%\todokahl{Ekvationer ska skrivas som del av mening. T ex (5.3),
+%"The two more commonly used measures .... are
+%recall = formula,          (5.3)
+%precision = formula.     (5.4)
+%Notera att om ekvationen avslutar meningen ska det vara punkt efter "formula" och innan (5.4).
+%}
+\todokahl{ Ibland använder ni kursiverad font för "SVM", ibland inte. Var konsistenta - det inkluderar även andra förkortningar: CBIR, CNN, etc.}
+
+\todokahl{Något man saknar är "new contributions". Det vill man gärna ha reda på ganska tidigt, och hur det står sig relativt litteraturen. Det står lite om det i kapitel 5, men så länge vill man inte vänta som läsare. Ofta säger man något om det redan i abstract, och definitivt i introduction.}
+\todokahl{ "eventhough" ska vara "even though". Likaså "atleast" -> "at least". (De finns på flera ställen).}
+Digital video and image files are normally important evidence in criminal investigations, and the amounts of images and videos that constitute the evidence increases more now than ever. The computer forensics community has ever increasing problems with this continued growth of information and in investigations the amount of data to be examined can in the very least be huge \cite{dhs2011}\cite{proc2009forensics}\cite{proc2010forensics}. In order to effectively help the investigators in their tasks of organizing and prioritizing evidence, methods to scrutinize the data in an efficacious manner is vital. In investigations pertaining digital information the need of a quick and effective way to handle large quantities of material is of importance as the evidence can be of abundance while the relevant part can be a trifle\todo{long sentence}. Methods focused on grouping material by some collective attributes are often found to be efficient. There are several of these attributes that can be correlated to the \todo{missing word?}\todo{or removal of words needed?} in visual content, such as in images and video. Since which images that are relevant might differ from case to case, it would be a good praxis if the investigators could define their own respective grouping setting for each separate case. By letting the investigator define some form of concept by directly specify image examples as relevant and non-relevant an algorithm can be trained to recognize a concept queried by an investigator.
+
+\section{Problem definition}
+\TODO{More like solution definition. Agree, something need to be rephrased or changed}
+The goal is to develop an algorithm that iteratively suggests new relevant material in line with the desired concept each new iteration and that improves while doing so. To achieve this a method called \emph{relevance feedback} is incorporated, where a user interacts with the algorithm by being presented a couple of images each iteration and labels these in accordance with their relevance against the sought after concept. 
+By using relevance feedback in the learning process a direct correction of the \emph{false positives} and \emph{false negatives} will give an increase in learning rate considered against not having a user which checks and tunes the algorithm. Each iteration will thus be made up of a selection of parts which constitutes; searching the image database for relevant content based on what the algorithm has learned in its previous stages. Presenting the most relevant ones to a user that corrects any errors in labeling and applies the desired labeling for the images. These newly labeled and checked images are then used to re-train and update the algorithm in each iteration.
+
+\TODO{Use case. Under problem definition}
+
+\section{Goals}
+\label{sec:intro:goals}
+The aim of this project is thus to:
+\begin{itemize} 
+	\item create an algorithm that helps identifying relevant images in a database which should be subjected to a user defined concept, a dynamic general concept search engine. 
+	\item exhaust the database of relevant images faster than an independent user or random search. 
+	\item put more emphasis on trying to minimize the number of false negatives, than the false positives, in the search as to lower the risk of neglecting images that would be of importance to the operator. False negatives being images that are classified as non-relevant while being relevant, and false positives being non-relevant images but predicted as relevant. 
+\end{itemize}
+\todo{more items?}
+\section{Delimitations}
+\label{sec:intro:delimitations}
+In the scope of this project choices were made to be able to propose a functioning model with some limitations given the time frame of the thesis. The aim is to create a dynamic general concept search engine with following delimitations.
+\begin{itemize}
+	\item Some parameters of the model need to be chosen emperically since all settings are missing support from previous papers. However there are some choices that are made more elaborately, e.g. parameter benchmarks are performed in order to find the optimal setting. 
+	\item The classification method chosen will be a binary one since this will be enough in the scope of this project. The classifier will not be tested towards other methods of classifying.
+	\item Only five different feature descriptors will be used, as the proof of concept of a general learner is central and not how the addition or omission of certain parts changes this function. By using five different feature descriptors makes it possible to get the distinction and variation sought for in a general sense.
+\end{itemize}
+
+\section{Contributions}
+\TODO{Contributions of thesis}
+\TODO{Using a classification system as a generic image retrieval system. }
+\TODO{CBIR using more than one image as query}
+\section{Organization of thesis}
+
+\begin{tabular}{l p{0.8\linewidth-5mm}}
+\textsc{Chapter \ref{chapter:cbirtheory}} & \textbf{\nameref{chapter:cbirtheory}} 
+presents the basic and central concepts in the scope of the thesis such as content-based image retrieval and relevance feedback. The material used in form of datasets and information of the images used as well as in which color ranges that are used in this thesis.\\ 
+\textsc{Chapter \ref{chapter:imagetheory}} & \textbf{\nameref{chapter:imagetheory}}
+describes the different parts that are relevant in the field of image analysis. The background of feature and the feature descriptors.\\ 
+\textsc{Chapter \ref{chapter:mltheory}} & \textbf{\nameref{chapter:mltheory}}
+describes the methods used for supervised learning and classification of the datasets.\\ 
+\textsc{Chapter \ref{chapter:method}} & \textbf{\nameref{chapter:method}}
+explains in deatail how the proposed model is structured as well as how evaluations were performed in order to test the model. The evaluations are parameter benchmarks and study comparisons with other content-based image retrieval models.\\ 
+\textsc{Chapter \ref{chapter:results}} & \textbf{\nameref{chapter:results}}
+presents the obtained results of evaluations described in the chapter \ref{chapter:method}. \\ 
+\textsc{Chapter \ref{chapter:conclusion}} & \textbf{\nameref{chapter:conclusion}}
+discusses the the results presented in chapter \ref{chapter:results}. From these discussions possible extensions on the model are presented as well as how some functionality of the model can be extracted for external usage.\\ 
+\end{tabular}
+\todo{needs rework and overview}

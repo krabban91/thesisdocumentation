@@ -1,0 +1,110 @@
+% !TEX root = ..\..\..\main.tex
+
+\subsection{Limiting search space}
+\label{sec:res:stopping}
+
+This parameter benchmark is described in Section \ref{sec:method:eval:param:stopping} and evaluates the \todo{four} settings 
+\textbf{All images}, \textbf{Threshold}, \textbf{Early stopping} and \textbf{Both rules}.
+
+The metrics used in this evaluation is presented in Section \ref{sec:method:eval:param}. Recall that the effectiveness of the model during search iterations is also measured in terms of time taken and how many images that are \todo{processed}handled each iteration in order to find the best set of images to present to the user. Also that the performance of the model is measured on an evaluation set as\todo{set as well as over} over the entire search space. 
+
+\subsubsection{Evaluation set}
+When measuring the performance on the evaluation set, none of the stopping conditions affected the learning rate in any direction. The evaluation set was  classified in a similar manner \todo{by}ny all the settings throughout the whole benchmark. 
+Resulting in that all settings have about the same values on all metrics. Which is for instance visible when inspecting the F1-measure \todo{remove ``that is seen''}that is seen in Figure \ref{fig:learning:eval_set:f1}. Since all settings followed the same pattern the presentation of recall rate\todo{rate, precision and} and accuracy is omitted in this section. However the general trend of the measurements can be observed in what is referred to as \emph{Top20+Bottom5} in Section \ref{sec:res:learning:eval}.
+
+\tripfigure
+{include/graphs/stopping/baseball_field/eval_set/f1.PNG}
+{include/graphs/stopping/bedroom/eval_set/f1.PNG}
+{include/graphs/stopping/bar/eval_set/f1.PNG}
+{The harmonic mean of recall and precision, F1-measure, read on the evaluation set over iterations. All of the settings had performed similarly throughout the evaluation.}
+{fig:stopping:eval_set:f1}
+
+\todo{split up this sentence.}Since the concept was learned equally independently of which of these stopping conditions that were used, the classification performance on the search space becomes more important as well as how much time that is spent calculating distances to data points each search iteration.
+
+\subsubsection{Search space}
+\label{sec:result:stopping:iterations}
+During the search iterations, the condition \todo{check all the emphasises in this section.}\emph{Early stopping} introduced a notable trend compared to the condition \emph{Threshold} in terms of correctness. As seen in Figure \ref{fig:stopping:iteration:precision}, the precision\todo{...precision, when prediction the search space, using the stopp...} when using the stopping condition \emph{Early stopping} gradually decreased, causing the precision of using both rules to decrease as well. \todo{But since => Since}But since the selection of images near the decision boundary on the negative side is delayed when using the early stopping condition, the material near the decision boundary is predicted correctly due to more knowledge of the data on the negative side. Thus causing the recall to stay higher than the other settings, as seen in Figure \ref{fig:stopping:iteration:recall}.
+
+\tripfigurenear
+{include/graphs/stopping/baseball_field/iteration/precision.PNG}
+{include/graphs/stopping/bedroom/iteration/precision.PNG}
+{include/graphs/stopping/bar/iteration/precision.PNG}
+{The precision of the different settings classifying the search spaces of the three evaluation categories. The \emph{early stopping} condition appear to have a negative impact on precision.}
+{fig:stopping:iteration:precision}
+
+\todo{in precision figure: ...different settings WHEN classifying the search... }
+\todo{in precision figure: remove emphasis. }
+\tripfigurenear
+{include/graphs/stopping/baseball_field/iteration/recall.PNG}
+{include/graphs/stopping/bedroom/iteration/recall.PNG}
+{include/graphs/stopping/bar/iteration/recall.PNG}
+{The recall rate of the different settings classifying the search spaces of the three evaluation categories. The condition \emph{Early stopping} may have a positive effect on recall.}
+{fig:stopping:iteration:recall}
+
+If no stopping condition is used the total number of handled images, when the total search space is initially 4600 images, is 425500\todo{Bake this equation.} (see Equation \ref{eq:res:stopping:images}). The total number of handled images for the different settings of stopping conditions in relation to this number can be seen in Table \ref{table:res:stopping:images}. \todo{rephrase the Which means part.}Which means that the reduction of total handled images when combining the stopping conditions is $\approx80-85\%$ on this dataset. Yet the F1-measure\todo{F1-measure levels?} recordings were only reduced with 20-25\% according to the result in Figure \ref{fig:stopping:iteration:f1}. 
+
+\begin{equation}
+\label{eq:res:stopping:images}
+\textnormal{Handled images}_{max} = \sum_{i=1}^{4600/25}{25i} =\sum_{i=1}^{184}{25i} = 425500 
+\end{equation}
+
+\begin{table}
+\centering
+\begin{tabular}{l | p{2.6cm} p{2.6cm} p{3.2cm} p{1.6cm} }
+\textbf{Set} & \textbf{All images} & \textbf{Threshold} & \textbf{Early stopping} & \textbf{Both} \\\hline
+Bedroom & 1 & 0.4168 & 0.2918 & 0.1522 \\
+Bar & 1 & 0.2537 & 0.5717 & 0.1862 \\
+Baseball field & 1 & 0.3843 & 0.2770 & 0.1491 
+\end{tabular}
+\caption{The average of total images that are handled during a search for each setting. The ratios of the value in Equation \ref{eq:res:stopping:images} are presented. The values are the average of five evaluations for each setting.}
+\label{table:res:stopping:images}
+\end{table}
+\todo{Table-caption: Equation bake}
+
+\tripfigurenear
+{include/graphs/stopping/baseball_field/iteration/f1.PNG}
+{include/graphs/stopping/bedroom/iteration/f1.PNG}
+{include/graphs/stopping/bar/iteration/f1.PNG}
+{The F1-measure that the different settings had when classifying the search spaces of the three evaluation categories.}
+{fig:stopping:iteration:f1}
+
+When inspecting the number of handled images by the different settings per iteration in Figure \ref{fig:stopping:iteration:handled} it becomes clear how the reduction of handled images could vary so much between the classes when using each condition solely. In the evaluation of retrieving the category \emph{Bar} the model finds more images that are predicted as relevant in a more dense manner. Which is why the early stopping condition does not evaluate as true\todo{rephrase, is not fulfilled?} for most of the early iterations and why threshold setting stops exploring earlier every iteration than in the other two evaluation \todo{categories}classes. The two stopping conditions are so disjunct in terms of when they come\todo{rephrase: is fulfilled?} true and therefore the combination of the two actually reduce the number of handled images in the search of all three categories. 
+
+\tripfigurenear
+{include/graphs/stopping/baseball_field/iteration/handled.PNG}
+{include/graphs/stopping/bedroom/iteration/handled.PNG}
+{include/graphs/stopping/bar/iteration/handled.PNG}
+{The number of handled images every iteration for the different settings. Having both stopping conditions results in fewer images handled in all three categories.}
+{fig:stopping:iteration:handled}
+\todo{handled image Figure: fewer images handled => processing fewer images}
+
+
+In terms of time taken there is a \todo{notable}noticable improvement when using a stopping condition instead of handling all the images in the search space. The time that an iteration takes varies a lot for the condition \emph{Early stopping}, see Figure \ref{fig:stopping:iteration:timetaken}, while the time taken for the threshold condition is just about the same throughout the entire search. But depending on which category that the algorithm is looking for the total time spent searching for the two conditions seems to vary compared to each other and combining the two conditions results in less time spent in all evaluations according to the measurements in Figure \ref{fig:stopping:iteration:totaltime}. On average, the total time reduction when using both stopping conditions compared with classifying all images every iteration was $\approx60\%$. 
+
+\tripfigurenear
+{include/graphs/stopping/baseball_field/iteration/timetaken.PNG}
+{include/graphs/stopping/bedroom/iteration/timetaken.PNG}
+{include/graphs/stopping/bar/iteration/timetaken.PNG}
+{The time taken every iteration for the different settings. Having both stopping conditions results in the lowest peak in terms of time taken, in an iteration, in all three categories.}
+{fig:stopping:iteration:timetaken}
+\todo{time taken image: terms of time taken in all categories.}
+
+\tripfigurenear
+{include/graphs/stopping/baseball_field/iteration/totaltime.PNG}
+{include/graphs/stopping/bedroom/iteration/totaltime.PNG}
+{include/graphs/stopping/bar/iteration/totaltime.PNG}
+{The total time taken for the different settings. There is a slight correlation with the ratios of handled images presented in Table \ref{table:res:stopping:images} and the time taken ratios in these graphs.}
+{fig:stopping:iteration:totaltime}
+\todo{totaltime image: ratios of handled images => ratios of processed images}
+
+In the same line as the F1-measure results, the number of retrieved images was a bit lower for the condition \todo{check empasises of section}\emph{Early stopping} (see Figure \ref{fig:stopping:iteration:retrieval}). 
+When searching for the category \emph{Baseball field} the early stopping condition seem to delay the full retrieval of the category by about 80 iterations. But when retrieving material from the category \emph{Bar} the third setting follows the trend of the other ones and retrieves the relevant images at the same pace. Which could be caused by the same reason that was observed in Figure \ref{fig:stopping:iteration:handled}; the \emph{Early stopping} setting often samples material until no more unique images are found. It is however clear that the setting \emph{Both} follows the setting \emph{Early stopping} in terms of how many\todo{relevant} images that are retrieved at a certain iteration. 
+
+
+\tripfigure
+{include/graphs/stopping/baseball_field/iteration/retrieved.png}
+{include/graphs/stopping/bedroom/iteration/retrieved.png}
+{include/graphs/stopping/bar/iteration/retrieved.png}
+{The retrieval rate that the different settings had when classifying the search spaces for the three evaluation categories. The retrieval rate of the setting with the \emph{Early stopping} condition and the setting without stopping condition is higher than the other two settings. As seen in Figure \ref{fig:stopping:iteration:handled}, the two settings, \emph{Early stopping} and \emph{All images}, handled about the same amount of images in the initial rounds.}
+{fig:stopping:iteration:retrieval}
+\todo{retrieved images image: entire caption is wrong.}

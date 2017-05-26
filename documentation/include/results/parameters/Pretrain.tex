@@ -1,0 +1,92 @@
+% !TEX root = ..\..\..\main.tex
+
+\subsection{Training data}
+\label{sec:res:knownset}
+
+The results of the evaluation described in Section \ref{sec:method:eval:param:training} are presented here. The settings of the evaluation are as \todo{are listed in}described in Table \ref{table:res:param:training:settings}. 
+
+\begin{table}[H]
+\centering
+\begin{scriptsize}
+
+\begin{tabular}{L{2cm} | L{4cm} | L{5cm}}
+\textbf{Setting} & \textbf{Training} & \textbf{Predefined training set \emph{(relevant+irrelevant)}}\\\hline
+1A & Only the first iteration & 5+5 \\
+1B & Only the first iteration & 5+50  \\
+1C & Only the first iteration & 22+484 \\
+1D & Only the first iteration & 250+250 \\
+2A & Every iteration & 5+5 \\
+2B & Every iteration & 5+50 \\
+2C & Every iteration & 22+484 \\
+2D & Every iteration & 250+250 \\
+3 & Every iteration & 0+0 \\
+\end{tabular}
+\end{scriptsize}
+
+\caption{The different settings evaluated in this benchmark. Deeper explanation found in Section \ref{sec:method:eval:param:training}.}
+\label{table:res:param:training:settings}
+\end{table}
+
+The metrics used for this evaluation are presented in Section \ref{sec:method:eval:param} and are as mentioned performed on an evaluation set and the search space. But the number of settings in this evaluation was higher than anticipated. Due to the number of different settings in this evaluation the presentation of the metrics will only consist the average value of the five runs of each setting. When the graphs included minimum and maximum values for each setting the data became much harder to understand and close to impossible to draw any conclusions from.
+
+The model will during the evaluation use all of the stopping conditions described in Section \ref{sec:method:proposed:matching:search}, present the \emph{top-20} images and \emph{bottom-5} images in the end of every iteration as proposed in Section \ref{sec:result:stopping:iterations} and the classifier uses the full set of feature descriptors as described in Section \ref{sec:method:eval:param}. 
+
+\subsubsection{Evaluation set}
+\label{sec:res:knownset:eval}
+Naturally the performance of the settings that only uses\todo{only use a} predefined training data when classifying the evaluation set is same throughout all iterations. As expected the performance increases when having more data to begin with. In terms of F1-measure (seen in Figure \ref{fig:knownset:evalset:f1}) the performance of smaller training data sets are superseded by the performances of bigger training data sets. 
+
+
+The settings that use data\todo{use training set data} retrieved by relevance feedback did however outperform the settings that did not. In the end of the search both the F1-measure and the accuracy where about the same for setting \emph{3} as for the setting \emph{1D}. But at around iteration 25 in the settings that use relevance feedback (settings \emph{2A-2D} and \emph{3}) have performance peaks that are considerably higher than at the end of the search, which is visible\todo{is noticeable} in Figure \ref{fig:knownset:evalset:f1} and Figure \ref{fig:knownset:evalset:accuracy}.
+
+\tripfigurenear
+{include/graphs/knownset/baseball_field/eval_set/f1.PNG}
+{include/graphs/knownset/bedroom/eval_set/f1.PNG}
+{include/graphs/knownset/bar/eval_set/f1.PNG}
+{The F1-measure read on the evaluation set over iterations. Settings that use relevance feedback perform differently every iteration.}
+{fig:knownset:evalset:f1}
+\todo{f1-figure: remove last sentence (Settings that...)}
+
+The biggest difference between the settings \emph{2A-2D} and the setting \emph{3} was \todo{insert ``that during''}the initial three to six iterations when the setting with predefined data could actually perform a search. Causing the performance of setting \emph{3} to be considerably lower than for\todo{for => the performance of} the other settings. But after those iterations the performance continuously rose up to be in level with the the settings \emph{2A, 2B, 2C \& 2D}. Eventhough setting \emph{2D} had a predefined data set of 250+250 relevant and non-relevant images their performance on the evaluation set turned out to be level. Yet it took the setting \emph{2D} a few more iterations to be on par with the settings \emph{2A-2C} and \emph{3}.
+
+\tripfigure
+{include/graphs/knownset/baseball_field/eval_set/accuracy.PNG}
+{include/graphs/knownset/bedroom/eval_set/accuracy.PNG}
+{include/graphs/knownset/bar/eval_set/accuracy.PNG}
+{The accuracy on the evaluation sets. Using only relevance feedback (setting \emph{3}) achieves higher results than having more relevant images in the predefined training set than in the search space (setting \emph{1D}) between iteration 10 and 80.}
+{fig:knownset:evalset:accuracy}
+\todo{accuracy figure: Using only training set data from relevance}
+\todo{accuracy figure: rephrase ``than having more relevant images in the predefined training set than in the search space'' => a predefined training set, that has more relevant images than the search space.. (1D)}
+
+\subsubsection{Search space}
+\label{sec:res:knownset:iter}
+
+The results of measuring how the different settings classified the search space were not as indicating is\todo{is => as} the results \todo{results that were observed when classifying the evaluation set. (remove sec ref.)}presented in Section \ref{sec:res:knownset:eval}. 
+The metrics precision, recall, F1-measure and accuracy gave relatively inconclusive results. The values of the F1-measure of the evaluation (seen in Figure \ref{fig:knownset:iteration:f1}) do however imply some trends. In the first couple of iterations of the search the settings that use \todo{use traning set data extracted}data extracted from relevance feedback begin to improve their results while the other settings begins with a high performance that shortly after decreases and then stabilizes.  
+
+\tripfigurenear
+{include/graphs/knownset/baseball_field/iteration/f1.PNG}
+{include/graphs/knownset/bedroom/iteration/f1.PNG}
+{include/graphs/knownset/bar/iteration/f1.PNG}
+{The F1-measure that the different settings had when classifying the search space. Having more data implies that the results become better.}
+{fig:knownset:iteration:f1}
+
+In terms of how well the different settings perform these measurements do not imply anything else than the more training data one has the better the result gets. The number of retrieved images after a certain iteration, as visualized in Figure \ref{fig:knownset:iteration:retrieval}, reflects the different sizes of traning data they had. By comparing the results of setting \emph{1D} with setting \emph{2D} when searching for the category \emph{Bar} in this figure, one can see how the data from relevance feedback improved the result of retrieving relevant material.
+
+\tripfigurenear
+{include/graphs/knownset/baseball_field/iteration/retrieved.png}
+{include/graphs/knownset/bedroom/iteration/retrieved.png}
+{include/graphs/knownset/bar/iteration/retrieved.png}
+{The number of retrieved imaged over the search iterations. Solely having 5 relevant images as training data (as in setting \emph{1A} and setting \emph{1B}) results in the incapability of retrieving the full content of the search space until it is depleted.}
+{fig:knownset:iteration:retrieval}
+
+In the intended scenario, the search space is unlabeled and is therefore categorized while the data is presented. In this setting the time taken to predict the category of the images should be relative to how long it takes to correct poorly predicted categories, which is not covered by the scope of the thesis. The time taken for each of the settings to categorize the search space relative to eachother\todo{each other} is presented in Figure \ref{fig:knownset:iteration:timetaken}. The impact of refitting the classifiers each iteration truly becomes clear in this figure as well as how the size of the training set causes \todo{training the classifier to take longer}fitting to take longer. 
+
+\tripfigure
+{include/graphs/knownset/baseball_field/iteration/totaltime.PNG}
+{include/graphs/knownset/bedroom/iteration/totaltime.PNG}
+{include/graphs/knownset/bar/iteration/totaltime.PNG}
+{The total time taken for the different settings of this evaluation. There is a huge time difference between the refitting the controller once doing it every iteration.}
+{fig:knownset:iteration:timetaken}
+\todo{time figure: the refitting => training}
+\todo{time figure: controller => classifier}
+\todo{time figure: once and doing it every iteration. }

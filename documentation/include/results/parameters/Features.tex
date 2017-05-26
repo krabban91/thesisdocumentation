@@ -1,0 +1,88 @@
+% !TEX root = ..\..\..\main.tex
+
+\subsection{Feature descriptors}
+\label{sec:res:features}
+This evaluation is described in Section \ref{sec:method:eval:param:features} and a presentation of the evaluated settings can be found there. The settings described are \textbf{HOG}, \textbf{GCH}, \textbf{WT}, \textbf{CNN}, \textbf{Edge}, \textbf{All} and \textbf{All-CNN}.
+
+This\todo{The} evaluation is performed with \todo{with both of the stopping conditions}the complete set of stopping conditions that was\todo{were} evaluated in Section \ref{sec:res:stopping} and the material that is presented in each iteration is, as the evaluation in Section \ref{sec:res:learning:iter} suggests, a combination of the \emph{top-20} images and the \emph{bottom-5}. 
+
+
+Just like the previous parameter benchmarks the performance is measured over the entire search space as well as how an\todo{a separate} evaluation set is categorized.
+
+
+\subsubsection{Evaluation set}
+\label{sec:res:features:eval}
+
+
+Throughout all the metrics that were measured during the evaluation the settings that used \emph{CNN} feature descriptors considerably outperformed the other settings.  A trend that is distinguishable in both the F1-measure (Figure \ref{fig:features:eval_set:f1}) and the accuracy (Figure \ref{fig:features:eval_set:accuracy}) of the two settings that incorporate the \emph{CNN} feature descriptor. There was a slight difference between using only the \emph{CNN} feature vector as a descriptor and combining all the feature descriptors.
+
+\tripfigurenear
+{include/graphs/features/baseball_field/eval_set/f1.PNG}
+{include/graphs/features/bedroom/eval_set/f1.PNG}
+{include/graphs/features/bar/eval_set/f1.PNG}
+{The F1-measure read on the evaluation set over iterations. Combining the information in different feature descriptors seems to give equally good or even better results.}
+{fig:features:eval_set:f1}
+\todo{f1-measure caption: good or better results compared to the best single descriptor}
+
+\tripfigurenear
+{include/graphs/features/baseball_field/eval_set/accuracy.PNG}
+{include/graphs/features/bedroom/eval_set/accuracy.PNG}
+{include/graphs/features/bar/eval_set/accuracy.PNG}
+{The accuracy of the different settings on the three evaluation sets. The \emph{CNN} feature descriptor performs better as an information vector than the other descriptors.}
+{fig:features:eval_set:accuracy}
+
+The value of combining different feature descriptors become more clear when omitting the results of the fourth and sixth setting and only inspecting the remaining four feature descriptors and the combination of those. The F1-measure of the remaining five settings can be seen in Figure \ref{fig:features:eval_set:f1_no_cnn}. Which single feature descriptor that performs the best depends on which category that is\todo{that the target is} the target. For the category \emph{Bedroom} a better result is given when using the \emph{HOG} descriptor while for the other two categories the target concept is more distinguishable \todo{when using the}with the \todo{check emphasis}\emph{GCH} descriptor. But more importantly; the combination of the four descriptor performs better or just as good as the best single descriptor. 
+
+
+\tripfigure
+{include/graphs/features/baseball_field/eval_set/f1_no_cnn.PNG}
+{include/graphs/features/bedroom/eval_set/f1_no_cnn.PNG}
+{include/graphs/features/bar/eval_set/f1_no_cnn.png}
+{A closer look on the F1-measure of all the settings that are not handling feature vectors derived from a neural network. The combination of feature descriptors results in equally good or better results.}
+{fig:features:eval_set:f1_no_cnn}
+\todo{f1-measurenocnn caption: good or better results compared to the best single descriptor}
+
+\subsubsection{Search space}
+\label{sec:res:features:iter}
+
+As mentioned in Section \ref{sec:res:features:eval} the different target categories of the data sets are more distinguishable when using the \emph{CNN} activation vector during classification. This is also evident in the F1-measure (Figure \ref{fig:features:iteration:f1}) and accuracy (Figure \ref{fig:features:iteration:accuracy}) when classifying the search space. More interestingly the positive effect of combining the first order classifiers become more clear in these measurements. When inspecting the \emph{Bar} category in the two figures the \emph{All} setting outperforms the setting that only uses the \emph{CNN} activation vector as a feature descriptor.
+
+\tripfigurenear
+{include/graphs/features/baseball_field/iteration/f1.PNG}
+{include/graphs/features/bedroom/iteration/f1.PNG}
+{include/graphs/features/bar/iteration/f1.PNG}
+{The F1-measure that the different settings had when classifying the search spaces of the three evaluation categories. The F1-measure on the \emph{Bar} category is higher when combining all the feature descriptors compared with solely using the CNN feature descriptor.}
+{fig:features:iteration:f1}
+
+\tripfigurenear
+{include/graphs/features/baseball_field/iteration/accuracy.PNG}
+{include/graphs/features/bedroom/iteration/accuracy.PNG}
+{include/graphs/features/bar/iteration/accuracy.PNG}
+{The accuracy of the different settings when classifying the search spaces of the three evaluation categories. As in Figure \ref{fig:features:iteration:f1}, there seems to be have a positive effect of combining feature descriptors.}
+{fig:features:iteration:accuracy}
+
+
+All the different settings of features\todo{feature descriptors} do seem to be able to present some distinguishability between the different categories. With the exception of the initial rounds of searching for the category \emph{Baseball field} with the setting \emph{WT}, where the results are in line with selecting images at random. The number of retrieved images \todo{remove ``per''}per at a certain iteration is presented in Figure \ref{fig:features:iteration:retrieval}. Here the superiority of using the \emph{CNN} activation vector becomes even more clear: When retrieving the bedroom class, the settings that use this\todo{use the CNN feature descriptor} feature descriptor have retrieved the entire target category at iteration 80 while the other settings can not retrieve the entire class until the search space is depleted. 
+
+\tripfigurenear
+{include/graphs/features/baseball_field/iteration/retrieved.png}
+{include/graphs/features/bedroom/iteration/retrieved.png}
+{include/graphs/features/bar/iteration/retrieved.png}
+{The number of retrieved images that the different settings had when classifying the search spaces. By introducing the \emph{CNN} feature descriptors to the classifier the concepts of the categories seem to be easier to learn.}
+{fig:features:iteration:retrieval}
+
+\todo{retrieval image: end: ...easier to retrieve.}
+
+The results of the setting that uses all the feature descriptors are considerably high in terms of pace of retrieving imagaes as well as with the F1-measure and the accuracy. But combining feature descriptors does come with the drawback of fitting more classifiers each iteration, causing the total time taken to grow accordingly.
+The total time spent computing predictions depended on how many and which classifiers that were \todo{remove being?}being used and by using all six classifiers the time taken grew accordingly. In Figure \ref{fig:features:iteration:totaltime} it is notable that combining all five descriptors compared to only combining four descriptors causes the computation time to grow to almost the double. 
+
+\tripfigure
+{include/graphs/features/baseball_field/iteration/totaltime.PNG}
+{include/graphs/features/bedroom/iteration/totaltime.PNG}
+{include/graphs/features/bar/iteration/totaltime.PNG}
+{The total time taken for the different settings. The more feature descriptors that are used the more time it takes to fit all classifiers.}
+{fig:features:iteration:totaltime}
+\todo{total time image: end: ... take to train the classifying system.}
+
+Given the performance of the \emph{CNN} setting one might consider only using this setting in the final evaluation. But as stated in Section \ref{sec:method:eval:param} the classifier is implemented\todo{implemented => used} as intended throughout the parameter benchmarks with the exception \todo{for => of?}for this evaluation. 
+

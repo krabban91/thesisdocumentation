@@ -1,0 +1,103 @@
+% !TEX root = ..\..\..\main.tex
+\subsection{The Corel-1000 evaluation}
+\label{sec:res:studycomp:corel}
+The results presented in this section is \todo{are retrieved in accordance}in accordance with the evaluations described in Section \ref{sec:meth:eval:studycomp:corel}. Recall that the evaluation was \todo{is performed}run with $t=10$ categories, $m=500$ different query sets per category and number of retrieved images $n=20$.
+
+The proposed model is adjusted to randomly sample the query data from the search space and makes sure that the query set and the test set are disjunct before an evaluation is performed. As mentioned in Section \ref{sec:meth:eval:studycomp} the number of images that the proposed model has in the training set was not decided on beforehand but was instead selected by inspecting the results of the similar studies. To do so the same evaluation was run with 6\todo{six} different traning\todo{query} set sizes: $2+2$, $3+3$, $4+4$, $5+5$, $7+7$ and $10+10$ relevant and irrelevant images. 
+%In Figure \ref{fig:result:cor:interface} the evaluation using $3+3$ images as a query set while searching for the category \emph{Flowers} was performed.
+
+%\singlefigurenear
+%{include/interface/flower_cbir_test.PNG}
+%{The proposed model is modified to deplete the search space during the evaluation. The evaluation that is shown is the search for the category with flower with 3+3 relevent+irrelevant images as a query set.}
+%{fig:result:cor:interface}
+%{0.6}
+
+The results of the evaluation on different sizes of query sets for the thesis model is presented in Table \ref{table:res:cbir:prec20} as well as in Figure \ref{fig:res:cbir:iictvc} (\emph{IICTVC} is short for the name of the thesis). When having the smallest number of query images and looking for the categories \emph{Africans} and \emph{Beaches} resulted in a \todo{an average retrieval precision}precision that is below $10\%$. But when having the largest number of query images the \todo{average retrieval precision}precision on the same categories is above $80\%$.
+
+
+\begin{table}	
+\centering
+\begin{scriptsize}
+\begin{tabular}{l l l l l l l l}		
+\hline					
+ 					 		& \multicolumn{6}{l}{Average precision (\%); $n=20$} \\ 
+\cline{2-7}
+Category 			 		&   \multicolumn{6}{l}{$r+i$ (IICTVC query set)} \\
+ 							& 	$2+2$  			&	$3+3$  			&	$4+4$  			&	$5+5$  			&	$7+7$  			&	$10+10$	\\ 
+\hline
+Africans		 			&	$05.66\pm0.08 $ &	$21.57\pm0.31 $ &	$48.03\pm0.35 $ &	$69.55\pm0.49 $ &	$84.59\pm0.41 $ &	$94.58\pm0.06 $	\\
+Beaches 					&	$07.18\pm0.12 $ &	$14.63\pm0.21 $ &	$43.16\pm0.41 $ &	$48.62\pm0.21 $ &	$73.96\pm0.26 $ &	$81.57\pm0.06 $	\\
+Buildings 					&	$11.53\pm0.15 $ &	$37.63\pm0.70 $ &	$68.10\pm0.38 $ &	$84.40\pm0.25 $ &	$95.77\pm0.08 $ &	$99.11\pm0.01 $	\\
+Buses 					 	&	$61.64\pm0.51 $ &	$78.88\pm0.65 $ &	$97.65\pm0.08 $ &	$99.63\pm0.01 $ &	$100.0\pm0.00 $ &	$100.0\pm0.00 $	\\
+Dinosaurs 					&	$99.06\pm0.02 $ &	$99.54\pm0.02 $ &	$100.0\pm0.00 $ &	$100.0\pm0.00 $ & 	$100.0\pm0.00 $ &	$100.0\pm0.00 $	\\
+Elephants 					&	$34.78\pm0.49 $ &	$63.56\pm0.44 $ &	$89.32\pm0.17 $ &	$93.45\pm0.08 $ &	$98.27\pm0.01 $ &	$99.24\pm0.00 $	\\
+Flowers 					&	$49.79\pm0.57 $ &	$61.30\pm0.64 $ &	$96.54\pm0.06 $ &	$91.45\pm0.12 $ &	$99.66\pm0.00 $ &	$99.75\pm0.00 $	\\
+Horses 						&	$63.02\pm0.22 $ &	$76.85\pm0.57 $ &	$92.50\pm0.06 $ &	$94.49\pm0.05 $ &	$97.73\pm0.01 $ &	$98.33\pm0.01 $	\\
+Mountains 					&	$13.25\pm0.15 $ &	$41.41\pm0.72 $ &	$73.58\pm0.69 $ &	$87.83\pm0.33 $ &	$97.38\pm0.02 $ &	$99.02\pm0.00 $	\\
+Food 						&	$10.01\pm0.35 $ &	$35.53\pm0.42 $ &	$68.73\pm0.67 $ &	$84.91\pm0.17 $ &	$93.97\pm0.08 $ &	$98.18\pm0.01 $	\smallskip\\ 
+Average						&	$35.59\pm0.01 $ &	$53.09\pm0.04 $ &	$77.76\pm0.02 $ &	$85.43\pm0.02 $  &	$94.13\pm0.01 $ &	$96.98\pm0.00 $ \\ 
+\hline
+\multicolumn{7}{l}{$n$ - number of images retrieved.}\\
+\multicolumn{7}{l}{$r$ - number of relevant images in query set.}\\
+\multicolumn{7}{l}{$i$ - number of irrelevant images in query set.}
+\end{tabular}							
+\end{scriptsize}
+\caption{Precision when retrieving 20 images from the Corel-1000 set with different query sets. Note that the variance decreases as the query set increases from six images to more.}
+\label{table:res:cbir:prec20}
+\end{table}							
+\singlefigurenear
+{include/graphs/cbir/IICTVC.png}
+{Precision when retrieving 20 images from the Corel-1000 set with different query sets presented in a graph. As the query sizes become larger than 4+4 the different precisions begin to increase much slower.}
+{fig:res:cbir:iictvc}
+{0.9}
+\todo{iictvc figure: final sentence. rephrase, ``changes logarithmicly''}
+
+In both the Table \ref{table:res:cbir:prec20} and the Figure \ref{fig:res:cbir:iictvc} it \todo{it is notable that}becomes clear that the more query images the better the retrieval of the intended category becomes. This is somewhat in line with correlation that a separate image retrieval paper has found. The more query images \todo{images that were uses}they used the better results they\todo{results were recieved} received until a certain point on their \todo{dataset}data set; using \todo{six}6 images as a seed for \todo{for a performed search}their search resulted in a detection rate of $60\%$, with \todo{ten}10 images the rate turned out to be around $85\%$ \cite{li2010optimol}. In the paper detection rate is described as the ratio of relevant images that are perceived by the model as relevant. \todokahl{Konstig och ofullständig mening.}Very much like how \todo{average retrieval precision}precision is described in this evaluation and \todo{``the those''=> the}the those values are somewhere near the result given by the test of different query sizes\todo{``:''=> ``.''}: Using 3 relevant and 3 irrelevant images as query set resulted in a precision of $\approx53\%$ and using 5 relevant and 5 irrelevant images resulted in a precision of $\approx85\%$. \todo{Intriguingly when selecting a query set of 2 relevant... }What was interresting with selecting \todo{two}2 relevant and \todo{two}2 irrelevent images \todo{remove ``as query images''}as query images in a randomly generated manner was that in some cases the model could not find any categorial characteristics and therefor often found \todo{zero}0 relevant images during the retrieval. \todo{But as soon as a good...}Yet once a good query set was constructed the number of relevant images that was retrieved rose up to 15-20\todokahl{images. Formulera om meningen.}. 
+
+
+
+Given the results of the inspected papers, mentioned in Section \ref{sec:meth:eval:studycomp:corel}, the query sizes that are used to compare with were set to $3+3$ and $5+5$ relevant and irrelevant images. The comparison of the \emph{precision@20} evaluations can be seen in Table \ref{table:res:cbir:compare} and Figure \ref{fig:res:cbir:compare}. When the query size of the proposed model is set to $3+3$ the model performs slightly better than the model described in \cite{wang2001simplicity}, yet slightly worse than the models in \cite{subrahmanyam2013modified}, \cite{nagaraja2015low} and \cite{elalami2014new}. But when the query set of the proposed model is set to $5+5$ the performance of the proposed model supersedes the other ones. 
+
+
+\begin{table}	
+\centering
+\begin{scriptsize}
+\begin{tabular}{l L{1.7cm} L{2.3cm} L{1.7cm} L{1.7cm} L{1.7cm} L{1.3cm} L{1.3cm}}		
+\hline					
+Category 					 		& \multicolumn{6}{l}{Average precision (\%); $n=20$} \\ 
+\cline{2-7}
+	& 	
+ 	\tiny{Wang, James Z. et.al. \cite{wang2001simplicity}}			&
+	\tiny{Subrahmanyam, M et.al. \cite{subrahmanyam2013modified}} &
+ 	\tiny{Nagaraja, S et.al. \cite{nagaraja2015low}}	&
+ 	\tiny{ElAlami, M.A. \cite{elalami2014new}}		&
+ 	\tiny{IICTVC ($3+3$)}	&
+ 	\tiny{IICTVC ($5+5$)}	\\ 
+\hline
+Africans		 			&47.50 &	69.75 &		56.00 &	\textbf{72.60} &	21.57&		69.55	\\
+Beaches 					&32.50 &	54.25 &	\textbf{60.00} &		59.30 &	14.63&		48.62	\\
+Buildings 					&33.00 &	63.95 &		58.00 &		58.70 &	37.63&	\textbf{84.40}	\\
+Buses 					 	&36.30 &	89.65 &		94.00 &		89.10 &	78.88&	\textbf{99.63}	\\
+Dinosaurs 					&98.10 &	98.70 &		98.00 &		99.30 & 	99.54& \textbf{100.0}	\\
+Elephants 					&40.00 &	48.80 &		66.00 &		70.20 &	63.56&	\textbf{93.45}	\\
+Flowers 					&40.20 &	92.30 &		88.00 &	\textbf{92.80} &	61.30&		91.45	\\
+Horses 						&71.90 &	89.45 &		78.00 &		85.60 &	76.85&	\textbf{94.49}	\\
+Mountains 					&34.20 &	47.30 &		58.00 &		56.20 &	41.41&	\textbf{87.83}	\\
+Food 						&34.00 &	70.90 &		54.00 &		77.20 &	35.53&	\textbf{84.91}	\smallskip\\ 
+Average					&46.77 &	72.50 &		71.00 &		76.10 & 	53.09& \textbf{85.43} \\ 
+\hline
+\multicolumn{7}{l}{$n$ - number of images retrieved.}
+\end{tabular}							
+\end{scriptsize}
+\caption{Precision when retrieving 20 images from the Corel-1000 the different studies and the proposed model with two different query set sizes.}
+\label{table:res:cbir:compare}
+\end{table}		
+
+Seeing that the proposed model performs this well compared to other CBIR methods is a good result. Yet it is still important to remember that having more query images reduces the risk of only having outliers as training\todo{query} data. \todo{The effect of this was}This was noticed more often when the query set size was set to $2+2$ and $3+3$, but considerably less when the query sets were larger than that. The other studies handles all images in the same category as an equal influence which gives the proposed model \todo{remove ``too much of ''}too much of an upper hand in this evaluation. \todo{But is still interesting since the proposed model}\todokahl{ofullständig mening}Which is interesting since the proposed model is designed to have much larger training/query sets in order to function as intended. 
+
+\singlefigurenear
+{include/graphs/cbir/compare.PNG}
+{Precision when retrieving 20 images from the Corel-1000 the different studies and the proposed model with two different query set sizes had. \textbf{(A)}: Wang, James Z. et.al. \cite{wang2001simplicity}, \textbf{(B)}: Subrahmanyam, M et.al. \cite{subrahmanyam2013modified}, \textbf{(C)}: Nagaraja, S et.al. \cite{nagaraja2015low} and \textbf{(D)}: ElAlami, M.A. \cite{elalami2014new}. }
+{fig:res:cbir:compare}
+{0.9}
+

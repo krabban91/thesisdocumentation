@@ -1,0 +1,22 @@
+% !TEX root = ..\..\main.tex
+\section{Parameter benchmarks}
+\label{sec:res:param}
+
+As mentioned in section \ref{sec:method:eval:param} there are some parameters to evaluate in order to find the optimal setting for the proposed model. The evaluations that are presented in this section are:
+\begin{itemize}
+\item \textbf{\nameref{sec:res:learning}}: Described in Section \ref{sec:method:eval:param:learning} and presented in Section \ref{sec:res:learning}.
+\item \textbf{\nameref{sec:res:stopping}}: Described in Section \ref{sec:method:eval:param:stopping} and presented in Section \ref{sec:res:stopping}.
+\item \textbf{ \nameref{sec:res:features}}: Described in Section \ref{sec:method:eval:param:features} and presented in Section \ref{sec:res:features}.
+\item \textbf{\nameref{sec:res:knownset}}: Described in Section \ref{sec:method:eval:param:training} and presented in Section \ref{sec:res:knownset}.
+\end{itemize}
+\medskip
+
+\todo{Flip order: The different... in Section ref.}In Section \ref{sec:method:eval:param} the different metrics used in this evaluations are mentioned. 
+However, the decision to omit some of the graphs from this thesis was made because of inconclusive differences in some metrics and an intention to only present what is relevant\todo{of relevance} in each evaluation. In most cases the information that is excluded by removing some figures from the thesis can be found by interpreting the results inbetween evaluations. But to do so should not be necessary.
+
+Recall that in Section \ref{sec:meth:eval:bench:dataset} the datasets used for the evaluation is a subset of 23 categories drawn from the set \todo{dataset Places205}MIT Places205 (see Section \ref{sec:theory:dataset:places}) and all benchmark evaluations are performed \todo{five times with three different categories}three times with different categories as the target.
+
+\input{include/results/parameters/Learning}
+\input{include/results/parameters/SearchSpace}
+\input{include/results/parameters/Features}
+\input{include/results/parameters/Pretrain}

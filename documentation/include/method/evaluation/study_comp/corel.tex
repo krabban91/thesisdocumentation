@@ -1,0 +1,38 @@
+% !TEX root = ..\..\..\..\main.tex
+\subsubsection{The Corel-1000 evaluation}
+\label{sec:meth:eval:studycomp:corel}
+
+The Corel-1000 dataset is presented in Section \ref{sec:corel} and as mentioned it is often used in to compare different image retrieval methods. This evaluation is intended to measure how well the system handles the diversity of the different classes in a dataset. Given a query image, present 20 images that are similar and the precision on that set of images is evaluated. The test is intended to be run with every image in the data set as query image and an average for every class is taken. There are in other words 100 data points for each class. But, as previously described in Section \ref{sec:meth:eval:studycomp}, the proposed model requires atleast two relevant images and two irrelevant images in the query set. Which results in $4950^2$ different combinations of query sets as well as having 10 relevant images and 10 irrelevant images produces $\approx (1.7\times 10^{13})^2$ different combinations. Evaluating all combinations would be time consuming as well as pointless since the performance of the model can be observed in a much smaller number of evaluations. In order to test more combinations, the query set is sampled 500 times per class instead of only 100 times. Resulting in an approximation based on around 10\% of all combinations on the smallest query set. In order to calculate how much the different query sets differs during an evaluation the variance of the result is calculated as well. When a query set is sampled the system processes the rest of the search space and presents the $n=20$ most similar images. The retrieval precison for $n$ images (\ref{eq:meth:eval:cor:prec})
+
+\begin{equation}
+\label{eq:meth:eval:cor:prec}
+P(Q_{k_i}, n) = \left . \tfrac{1}{n}\sum_{e \in \xi(Q_{k_i})} \delta(\Phi(e), \Phi(r)) \right |_{ r \in Q_{k_i},  \delta(\Phi(r), k)=1, |\xi(Q_{k_i})|=n},
+\end{equation}
+where $Q_{k_i}$ is the $i$th query set for category $k$, $\xi(y)$ is the retrieved set for query set $y$. $\Phi(x)$ is the category of image $x$, \begin{tiny}$\delta(\Phi(a), \Phi(b)) = \left \{ 
+\begin{matrix} 
+1 & \Phi(a) = \Phi(b) \\
+0 & Otherwise
+\end{matrix}\right.$\end{tiny}.
+%}	
+ In short $P(Q_{k_i}, n)$ is the number of retrieved images that are relevant is divided by the total number of retrieved images. 
+ The average retrieval precision for category $k$ (\ref{eq:meth:eval:cor:class_arp}) 
+
+
+\begin{equation}
+\label{eq:meth:eval:cor:class_arp}
+ARP_k = \tfrac{1}{m}\sum_{i=1}^{m}P(Q_{k_i}, n),
+\end{equation}
+where $n$ is the number of retrieved images, $k$ is the desired category and $m$ is the number of evaluations per category.
+As well as the total average retrieval precision (\ref{eq:meth:eval:cor:arp})
+\begin{equation}
+\label{eq:meth:eval:cor:arp}
+ARP = \tfrac{1}{t\times m}\sum_{k=1}^{t}\sum_{i=1}^{m}P(Q_{k_i}, n),
+\end{equation}
+where $n$ is the number of retrieved images, $m$ is the number of evaluations per category and $t$ is the total number of categories in evaluation. 
+If briefly described the $ARP$ is simply what the average ratio is of the $n$ retrieved images that are predicted as relevent and actually are of the intended category after $m$ evaluations for every class.
+
+In order to retrieve the variance for each evaluation the result is split up into 20 equally sized subsets of which $ARP$ is measured on. The variance is then derived from those and finally an avarage is calculated over the 20 variances for each subset. 
+
+Evaluation is run with $t=10$ categories, $m=500$ different query sets per category and number of retrieved images $n=20$ resulting in that the model calculates distances to all the images in the dataset for atleast 5000 times.
+
+As mentioned in Section \ref{sec:meth:eval:studycomp} the number of query images that will be used is determined by how the well other papers perform at the task. The most common approach of CBIR is to use one query image and calculate a distance to other images in some dimension space. This is what is done in \cite{wang2001simplicity}, \cite{subrahmanyam2013modified} and \cite{nagaraja2015low}. But there are other approaches to the problem as well. In the case of \cite{elalami2014new} where the authors trains a machine learning classifier in order to find images of relevance. One might argue that the proposed model is a combination of these two, where a small query set is fitted onto a classifier and checks it towards the test set. Eventhough there are similarities to the other models a fair comparison can not be made. In \cite{wang2001simplicity}, \cite{subrahmanyam2013modified} and \cite{nagaraja2015low} the test set consists the Corel-1000 dataset minus the query image. In \cite{elalami2014new} the test set only consist of a tenth of the Corel-1000 dataset and in the proposed model the test set consists of the Corel-1000 dataset minus the query set.

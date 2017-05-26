@@ -1,0 +1,21 @@
+% !TEX root = ..\..\main.tex
+% CREATED BY DAVID FRISK, 2016
+\thispagestyle{plain}			% Supress header 
+\setlength{\parskip}{0pt plus 1.0pt}
+\section*{Abstract}
+This thesis presents a novel method to quickly sift through the visual content (image material) of a database in order to retrieve as much relevant material as possible. The proposed model uses a combination of classification systems, image retrieval and relevance feedback. Five different feature descriptors, known to be useful within image retrieval, are extracted to later be inserted into a classification system. The material is presented to, and corrected by, a user and can therefore be used as training data in future iterations. The training data is inserted to a supervised learning classifier in order to search through the database. The most relevant material is passed through the feedback loop allowing the model to learn concepts in a fast manner.
+
+The five feature descriptors that are commonly used within the field are the following: \emph{histograms of oriented gradients}, \emph{global color histograms}, \emph{Haar wavelet transformations}, edge detections using a \emph{Sobel filter} and the final activations of a \emph{VGG-16} neural network.
+
+In the classification system a classifier called \emph{Deep SVM} (\emph{Deep Support vector machine}) is used. In the proposed model it consists of 6 SVMs in order to create an ensemble, where one is used for each kind of feature descriptor and the last SVM is used to combine the result of the first order classifiers. Material in the search space is passed through the system and the most relevant material is presented to an expert user.
+
+Evaluations and measurements were performed on the model in two settings. Firstly as a parameter benchmark in order to find the most appropriate setting for the intended use of retrieving all the relevant visual material in a crime investigation case. Secondly as an image retrieval comparison with other studies by using a small training set as query material. The parameter benchmark shows that the model is capable of retrieving the majority of relevant material within a small number of iterations. The study comparision shows that even though the model is designed to have sets of images as query data, the size of the sets does not have to be greater than 10 in order to outperform the related approaches. 
+
+The contributions of the thesis consist of the following: Using a Deep SVM in combination with relevance feedback to perform an image retrieval results in great performance and a complete retrieval within a low number of relevance feedback iterations. Content-based image retrieval has previously been performed with one image as query material while this thesis presents a method of using a set of images for the task in order to achieve a higher abstraction level. 
+
+% KEYWORDS (MAXIMUM 10 WORDS)
+\vfill
+Keywords: \textit{Machine learning, Ensemble learning, Image analysis, Content-based image retrieval, Relevance feedback, Semantic gap, Feature extraction, Neural network, Support vector machine, Deep SVM}
+
+\thispagestyle{empty}
+\mbox{}
