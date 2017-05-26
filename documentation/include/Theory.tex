@@ -24,16 +24,44 @@ The process is in general that a user is presented with a number of images by a 
 There are several file formats available and different ways to store images, such as storing images as as uncompressed and compressed raster formats as well as vector formats. When an image is stored with a raster format it is represented by a grid of pixels with a depth depending on the information of the image. The most common way to store image information is to use a 24-bit RGB pixel, where RBG is an abbrevation for red green and blue. Each 24-bit pixel has three equally sized channels of 8 bits, which makes each color channel range between 0 and 255. Resulting in approximately 16.8 million different combinations for colors, where a human can perceive about 10 million \cite[p.388]{judd1975color}. A computer screen usually operates at the described color setting. The size of the file simply depends on how many of these pixels that are stored, i.e. the size directly depends the dimensions (width and height) of the image. As the sizes may vary, some images can become expensive to process. Because of this it can be prudent to downsize the image to a smaller number of pixels and thus avoiding unnecessarily large amounts of data. Downsizing can be especially useful since high pixel information is not always equivalent to good performance \cite{torralba200880}.
 There are several different color spaces and of which some are used in image analysis depending on the task. The most commonly known being RGB which is a color space that generated based on how colors are created based on mixing light. The use of additive color combinations of red green and blue became useful when the production television sets and computer screens rose. Though these three color channels are useful as lightsources, they are considered rather inept in image analysis. Humans tend to react more on the hue and saturation of an image than these color channels \cite{alzu2015semantic}\cite{cheng2001color}. 
 
+
+\fourfigure
+{figure/colors/cat.jpg}
+{figure/colors/rgb/r.png}
+{figure/colors/rgb/g.png}
+{figure/colors/rgb/b.png}
+{Caption}
+{fig:theory:colors:rgb} 
+\todo{write caption for figure.}
+
 \subsection{Hue, saturation, value}
 \label{sec:HSV_theory}
 \emph{Hue}, \emph{saturation} and \emph{value}, abbreviated as HSV, is a color space in line with RGB. The difference is that HSV is a cylindrical representation of RGB, where RGB is mapped as a cube where the channels r, g and b can be interpreted as the often named x, y and z axes. The HSV can be mapped cylindrically where hue is the degree position of the cylinder, saturation is the radius and value is the height. HSV is considered to be a color space that is a closer representation how a human perceives the world and thus also often used in the field of CBIR and image analysis as a whole. 
 
+
+\fourfigure
+{figure/colors/cat.jpg}
+{figure/colors/hsv/h.png}
+{figure/colors/hsv/s.png}
+{figure/colors/hsv/v.png}
+{Caption}
+{fig:theory:colors:hsv} 
+\todo{write caption for figure.}
 
 \subsection{YCbCr}
 \label{sec:ycbcr}
 YCbCr is a color space used mainly in color image pipeline \todo{Sentence. Meaning?} for video and photography systems. The color space was invented during development of a digital video standard and set to lessen the total bandwidth required \todo{required total bandwidth}. This representation is composed to work towards human perception where the luminance component (Y) can be seen as analogous to the brightness or light component and the two chroma (Cb and Cr) filling out the color spectra \cite{midha2014analysis}. 
 The color information is not always as vital for human perception as the brightness is. The human retina has three types of photoreceptor cells where two are commonly referred to: The rods, that are very sensitive to light and can be triggered by a single proton, and the cones, that are less sensitive to light but reacts to differently to different wavelengths of light. A human has $\approx120$ million rods and $\approx6$ million cones. Then number of photoreceptor is somewhat of an indicator of which channel in YCbCr that affects human perception the most. 
 The luminance is often used in edge detection since it conveys textures, illuminates the shapes of objects and portrays depth in images \cite{su2011coldimage}\cite{prajapatiedge}. 
+
+\fourfigure
+{figure/colors/cat.jpg}
+{figure/colors/ycbcr/y.png}
+{figure/colors/ycbcr/cb.png}
+{figure/colors/ycbcr/cr.png}
+{Caption}
+{fig:theory:colors:ycbcr} 
+\todo{write caption for figure.}
 
 \TODO{One reason is that to have components that can described in some form of light, value (V) for HSV and luminance (Y) for YCbCr, component is separated from the color component(s) prominent in some color spaces, as the RGB color space where each channel have light built into it, which gives a more noisy interpretation of the light than if the channel were to be separated.   :::: todo Was in Hsv... The entire sentence (starting at one reason): why is it here? Move to image format or remove. }
 
