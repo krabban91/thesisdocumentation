@@ -17,9 +17,14 @@
 Digital video and image files are normally important evidence in criminal investigations, and the amounts of images and videos that constitute the evidence are larger now than ever. The computer forensics community has ever increasing problems with this continued growth of information and in investigations the amount of data to be examined is often problematic \cite{dhs2011}\cite{proc2009forensics}\cite{proc2010forensics}. In order to effectively help the investigators in their tasks of organizing and prioritizing evidence, methods to scrutinize the data in an efficacious manner is vital. In investigations pertaining relevant digital information quickly and effectively material is of importance, as evidence can be of large quantities. Methods focused on grouping material by some collective attributes are often found to be efficient. There are several of these attributes that can be correlated to the information obtainable in visual content, such as in images and video. Since which images that are relevant might differ from case to case, it would be a good praxis if the investigators could define their own respective grouping setting for each separate case. By letting the investigator define some form of concept by directly specify image examples as relevant and non-relevant an algorithm can be trained to recognize a concept queried by an investigator.
 
 \section{Problem definition}
-\TODO{More like solution definition. Agree, something need to be rephrased or changed}
-The goal is to develop an algorithm that iteratively suggests new relevant material in line with the desired concept each new iteration and that improves while doing so. To achieve this a method called \emph{relevance feedback} is incorporated, where a user interacts with the algorithm by being presented a couple of images each iteration and labels these in accordance with their relevance against the sought after concept. 
-By using relevance feedback in the learning process a direct correction of the \emph{false positives} and \emph{false negatives} will give an increase in learning rate considered against not having a user which checks and tunes the algorithm. Each iteration will thus be made up of a selection of parts which constitutes; searching the image database for relevant content based on what the algorithm has learned in its previous stages. Presenting the most relevant ones to a user that corrects any errors in labeling and applies the desired labeling for the images. These newly labeled and checked images are then used to re-train and update the algorithm in each iteration.
+Problems that where relevant for this thesis are as follows:
+\begin{itemize}
+	\item make an algorithm understand that the desired concept of a user.
+	\item to find efficient search methods which fit well for the general case, as users often want to modify the results of a search more than they can. 
+	\item to find datasets which are generic enough to train on that the algorithm shows good performance in new distinct user cases which have concepts not yet defined. 
+\end{itemize}
+%The approach is to create a ensemble classification method which uses To achieve this a method called \emph{relevance feedback} is incorporated, where a user interacts with the algorithm by being presented a couple of images each iteration and labels these in accordance with their relevance against the sought after concept. 
+%By using relevance feedback in the learning process a direct correction of the \emph{false positives} and \emph{false negatives} will give an increase in learning rate considered against not having a user which checks and tunes the algorithm. Each iteration will thus be made up of a selection of parts which constitutes; searching the image database for relevant content based on what the algorithm has learned in its previous stages. Presenting the most relevant ones to a user that corrects any errors in labeling and applies the desired labeling for the images. These newly labeled and checked images are then used to re-train and update the algorithm in each iteration.
 
 \TODO{Use case. Under problem definition}
 
@@ -43,24 +48,25 @@ In the scope of this project choices were made to be able to propose a functioni
 
 \section{Contributions}
 
+A classification method is used as a generic image retrieval system to help quickly identify and learn user defined concepts which are previously unknown to the system. 
+The implementation of a Deep SVM with relevance feedback to perform image retrieval whit a low false negative rate within a low number of relevance feedback iterations. 
+An attempt to use both weak and strong learners in the same ensemble to enhance performance in terms of a more generic classification. In this report we test a new CBIR method using more then one image as query, which is the normal case, to achieve a higher abstraction level and boost performance. 
+%Though the result indicating this is on the hardest set according to the result it still gives a view of the potential of adding strong learners in an ensemble as well. 
 
-\TODO{Contributions of thesis}
-\TODO{Using a classification system as a generic image retrieval system. }
-\TODO{CBIR using more than one image as query}
 \section{Organization of thesis}
 
 \begin{tabular}{l p{0.8\linewidth-5mm}}
 \textsc{Chapter \ref{chapter:cbirtheory}} & \textbf{\nameref{chapter:cbirtheory}} 
-presents the basic and central concepts in the scope of the thesis such as content-based image retrieval and relevance feedback. The material used in form of datasets and information of the images used as well as in which color ranges that are used in this thesis.\\ 
+presents the basic and central concepts in the scope of the thesis such as content-based image retrieval and relevance feedback. A introduction to the datasets used and information of why different formats and color ranges are important in this thesis.\\ 
 \textsc{Chapter \ref{chapter:imagetheory}} & \textbf{\nameref{chapter:imagetheory}}
-describes the different parts that are relevant in the field of image analysis. The background of feature and the feature descriptors.\\ 
+takes up relevant part of image analysis. What image feature are and the different feature descriptors which later were implemented.\\ 
 \textsc{Chapter \ref{chapter:mltheory}} & \textbf{\nameref{chapter:mltheory}}
-describes the methods used for supervised learning and classification of the datasets.\\ 
+describes supervised learning and what classification is and the methods used. \\ 
 \textsc{Chapter \ref{chapter:method}} & \textbf{\nameref{chapter:method}}
-explains in deatail how the proposed model is structured as well as how evaluations were performed in order to test the model. The evaluations are parameter benchmarks and study comparisons with other content-based image retrieval models.\\ 
+explains in how the proposed model is constructed and how evaluations were performed in order to test the model. The evaluations split between parameter benchmarks and study comparisons with other content-based image retrieval models.\\ 
 \textsc{Chapter \ref{chapter:results}} & \textbf{\nameref{chapter:results}}
 presents the obtained results of evaluations described in the chapter \ref{chapter:method}. \\ 
 \textsc{Chapter \ref{chapter:conclusion}} & \textbf{\nameref{chapter:conclusion}}
-discusses the the results presented in chapter \ref{chapter:results}. From these discussions possible extensions on the model are presented as well as how some functionality of the model can be extracted for external usage.\\ 
+discusses the results presented in chapter \ref{chapter:results}. From these discussions possible extensions on the model are presented as well as how some functionality of the model can be extracted for external usage. Then ends with potential future works. \\ 
 \end{tabular}
-\todo{needs rework and overview}
+
