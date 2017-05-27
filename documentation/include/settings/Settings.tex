@@ -270,7 +270,7 @@
 \newcommand{\twofigure}[4]{
 	\begin{figure}[H]
 		\centering
-		\begin{tabular}{c @{\tiny{ }} c}
+		\begin{tabular}{m{0.4\textwidth}m{0.4\textwidth}}
 			\includegraphics[width=0.39205\textwidth]{#1} &
 			\includegraphics[width=0.39205\textwidth]{#2} 
 		\end{tabular}
@@ -282,11 +282,11 @@
 \newcommand{\fourfigure}[6]{
 	\begin{figure}[H]
 		\centering
-		\begin{tabular}{c@{\tiny{ }} c@{\tiny{ }} c@{\tiny{ }} c}
-			\includegraphics[width=0.24205\textwidth]{#1} &
-			\includegraphics[width=0.24205\textwidth]{#2} &
-			\includegraphics[width=0.24205\textwidth]{#3} &
-			\includegraphics[width=0.24205\textwidth]{#4} 
+		\begin{tabular}{m{0.15\textwidth}m{0.15\textwidth}m{0.15\textwidth}m{0.15\textwidth}}
+			\includegraphics[width=0.14205\textwidth]{#1} &
+			\includegraphics[width=0.14205\textwidth]{#2} &
+			\includegraphics[width=0.14205\textwidth]{#3} &
+			\includegraphics[width=0.14205\textwidth]{#4} 
 		\end{tabular}
 		\caption{#5}
 		\label{#6}
@@ -296,8 +296,8 @@
 \newcommand{\threefigure}[5]{
 	\begin{figure}[H]
 		\centering
-		\begin{tabular}{c@{\tiny{ }} c@{\tiny{ }} c@{\tiny{ }} c}
-			\includegraphics[width=0.29205\textwidth]{#1} &
+		\begin{tabular}{m{0.3\textwidth} @{\tiny{ }} m{0.3\textwidth} @{\tiny{ }} m{0.3\textwidth} @{\tiny{ }} c}
+			\includegraphics[width=0.19205\textwidth]{#1} &
 			\includegraphics[width=0.29205\textwidth]{#2} &
 			\includegraphics[width=0.29205\textwidth]{#3} 
 		\end{tabular}
