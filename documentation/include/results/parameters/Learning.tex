@@ -4,7 +4,7 @@
 \label{sec:res:learning}
 
 The entirety of this evaluation is introduced in Section \ref{sec:method:eval:param:learning} and the results of the different settings are presented here. 
-\todo{Refer to the proposed model instead.}Recall the interface mentioned in Section \ref{sec:res:prod} in Figure \ref{fig:result:prod:search} where the user needs to correct the predictions that the model has presented. This benchmarks evaluates what happens when replacing the Top20+Bottom5 setup with something else. The four different settings \todo{of the evaluation are to present the}that was used was to present are \textbf{Top20+Bottom5}, \textbf{Top25}, \textbf{Top20+Middle5} and \textbf{Top5+Bottom20}.
+The four different settings of the evaluation are to present the \textbf{Top20+Bottom5}, \textbf{Top25}, \textbf{Top20+Middle5} and \textbf{Top5+Bottom20}.
 
 As mentioned in Section \ref{sec:method:eval:param} the performance of the model is measured in two ways. The performance on an evaluation set as well the performance over the entire search space.
 
@@ -13,7 +13,7 @@ As mentioned in Section \ref{sec:method:eval:param} the performance of the model
 When classifying the evaluation set each iteration the measurements of the settings ended up to be very similar. The performance of the first three settings were almost identical. An initial performance peak in classifying the set that later on dropped off. While the performance of the fourth setting deviated from the performance of the others the measurements were about the same throughout all the iterations.
 
 Independently of how images were selected the recall (see Figure \ref{fig:learning:eval_set:recall}) of the settings only differed marginally. With an exception of the fourth setting that in some manner deviated from the other ones. 
-The precision of the fourth setting deviated a lot more which can be seen in Figure \ref{fig:learning:eval_set:precision}\todokahl{Ofullständig mening.}. \todo{Strange sentence.}The precision of the fourth setting causes the F1-measure to go down as well. \todo{connect the two sentences.}Which can be seen in Figure \ref{fig:learning:eval_set:f1}. The cause of this is that the fourth setting had an higher number of false positives than the other settings had.
+The precision of the fourth setting deviated from the other settings, which can be seen in Figure \ref{fig:learning:eval_set:precision}. Due to the low precision of the fourth setting, the F1-measure is low as well, which can be seen in Figure \ref{fig:learning:eval_set:f1}. The cause of this is that the fourth setting had an higher number of false positives than the other settings had.
 
 An important observation to make is that towards the end of the evaluations all four settings have the same training data and therefor classifies the evaluation set accordingly. Having the complete training set results in an F1-measure around 0.32 when retrieving the category \emph{Bar} and around 0.65 when retrieving the other two from the remaining 22 categories in the evaluation set.
 \tripfigurenear
@@ -43,10 +43,8 @@ The accuracy when using the different settings did not vary that much either. As
 {include/graphs/learning/baseball_field/eval_set/accuracy_extra.PNG}
 {include/graphs/learning/bedroom/eval_set/accuracy_extra.PNG}
 {include/graphs/learning/bar/eval_set/accuracy_extra.PNG}
-{The accuracy of the different settings on the three evaluation sets. Note how the accuracy of fourth setting varied more in between runs than the accuracy of the other three did.}
+{The accuracy of the different settings on the three evaluation sets. Note how the accuracy of fourth setting varied more in-between evaluations than the accuracy of the other three settings did.}
 {fig:learning:eval_set:accuracy}
-\todo{figure..evaluations: ``between... runs''}
-\todo{figure..insert settings: ``three... did''}
 
 \subsubsection{Search space}
 \label{sec:res:learning:iter}

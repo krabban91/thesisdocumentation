@@ -1,9 +1,9 @@
 % !TEX root = ..\..\..\main.tex
 \subsection{The Corel-1000 evaluation}
 \label{sec:res:studycomp:corel}
-The results presented in this section is \todo{are retrieved in accordance}in accordance with the evaluations described in Section \ref{sec:meth:eval:studycomp:corel}. Recall that the evaluation was \todo{is performed}run with $t=10$ categories, $m=500$ different query sets per category and number of retrieved images $n=20$.
+The results presented in this section are retrieved in accordance with the evaluations described in Section \ref{sec:meth:eval:studycomp:corel}. Recall that the evaluation is performed with $t=10$ categories, $m=500$ different query sets per category and number of retrieved images $n=20$.
 
-The proposed model is adjusted to randomly sample the query data from the search space and makes sure that the query set and the test set are disjunct before an evaluation is performed. As mentioned in Section \ref{sec:meth:eval:studycomp} the number of images that the proposed model has in the training set was not decided on beforehand but was instead selected by inspecting the results of the similar studies. To do so the same evaluation was run with 6\todo{six} different traning\todo{query} set sizes: $2+2$, $3+3$, $4+4$, $5+5$, $7+7$ and $10+10$ relevant and irrelevant images. 
+The proposed model is adjusted to randomly sample the query data from the search space and makes sure that the query set and the test set are disjunct before an evaluation is performed. As mentioned in Section \ref{sec:meth:eval:studycomp} the number of images that the proposed model has in the training set was not decided on beforehand but was instead selected by inspecting the results of the similar studies. To do so the same evaluation was run with six different query set sizes: $2+2$, $3+3$, $4+4$, $5+5$, $7+7$ and $10+10$ relevant and irrelevant images. 
 %In Figure \ref{fig:result:cor:interface} the evaluation using $3+3$ images as a query set while searching for the category \emph{Flowers} was performed.
 
 %\singlefigurenear
@@ -12,7 +12,7 @@ The proposed model is adjusted to randomly sample the query data from the search
 %{fig:result:cor:interface}
 %{0.6}
 
-The results of the evaluation on different sizes of query sets for the thesis model is presented in Table \ref{table:res:cbir:prec20} as well as in Figure \ref{fig:res:cbir:iictvc} (\emph{IICTVC} is short for the name of the thesis). When having the smallest number of query images and looking for the categories \emph{Africans} and \emph{Beaches} resulted in a \todo{an average retrieval precision}precision that is below $10\%$. But when having the largest number of query images the \todo{average retrieval precision}precision on the same categories is above $80\%$.
+The results of the evaluation on different sizes of query sets for the thesis model is presented in Table \ref{table:res:cbir:prec20} as well as in Figure \ref{fig:res:cbir:iictvc} (\emph{IICTVC} is short for the name of the thesis). When having the smallest number of query images and looking for the categories \emph{Africans} and \emph{Beaches} resulted in an average retrieval precision that is below $10\%$. But when having the largest number of query images the average retrieval precision on the same categories is above $80\%$.
 
 
 \begin{table}	
@@ -47,12 +47,11 @@ Average						&	$35.59\pm0.01 $ &	$53.09\pm0.04 $ &	$77.76\pm0.02 $ &	$85.43\pm0.
 \end{table}							
 \singlefigurenear
 {include/graphs/cbir/IICTVC.png}
-{Precision when retrieving 20 images from the Corel-1000 set with different query sets presented in a graph. As the query sizes become larger than 4+4 the different precisions begin to increase much slower.}
+{Precision when retrieving 20 images from the Corel-1000 set with different query sets presented in a graph. The query size affects the performance.}
 {fig:res:cbir:iictvc}
 {0.9}
-\todo{iictvc figure: final sentence. rephrase, ``changes logarithmicly''}
 
-In both the Table \ref{table:res:cbir:prec20} and the Figure \ref{fig:res:cbir:iictvc} it \todo{it is notable that}becomes clear that the more query images the better the retrieval of the intended category becomes. This is somewhat in line with correlation that a separate image retrieval paper has found. The more query images \todo{images that were uses}they used the better results they\todo{results were recieved} received until a certain point on their \todo{dataset}data set; using \todo{six}6 images as a seed for \todo{for a performed search}their search resulted in a detection rate of $60\%$, with \todo{ten}10 images the rate turned out to be around $85\%$ \cite{li2010optimol}. In the paper detection rate is described as the ratio of relevant images that are perceived by the model as relevant. \todokahl{Konstig och ofullständig mening.}Very much like how \todo{average retrieval precision}precision is described in this evaluation and \todo{``the those''=> the}the those values are somewhere near the result given by the test of different query sizes\todo{``:''=> ``.''}: Using 3 relevant and 3 irrelevant images as query set resulted in a precision of $\approx53\%$ and using 5 relevant and 5 irrelevant images resulted in a precision of $\approx85\%$. \todo{Intriguingly when selecting a query set of 2 relevant... }What was interresting with selecting \todo{two}2 relevant and \todo{two}2 irrelevent images \todo{remove ``as query images''}as query images in a randomly generated manner was that in some cases the model could not find any categorial characteristics and therefor often found \todo{zero}0 relevant images during the retrieval. \todo{But as soon as a good...}Yet once a good query set was constructed the number of relevant images that was retrieved rose up to 15-20\todokahl{images. Formulera om meningen.}. 
+In both the Table \ref{table:res:cbir:prec20} and the Figure \ref{fig:res:cbir:iictvc} it is notable that the more query images the better the retrieval of the intended category becomes. This is somewhat in line with correlation that a separate image retrieval paper has found. The more query images that were used the better results were recieved until a certain point on their dataset; using six images as a seed for a performed search resulted in a detection rate of $60\%$, with ten images the rate turned out to be around $85\%$ \cite{li2010optimol}. In the paper detection rate is described as the ratio of relevant images that are perceived by the model as relevant, a description that is very similar to how average retrieval precision is described in this evaluation and the values are somewhere near the result given by the test of different query sizes. Using 3 relevant and 3 irrelevant images as query set resulted in a precision of $\approx53\%$ and using 5 relevant and 5 irrelevant images resulted in a precision of $\approx85\%$. Intriguingly when selecting a query set of two relevant and two irrelevent images in a randomly generated manner was that in some cases the model could not find any categorial characteristics and therefor often found zero relevant images during the retrieval. But as soon as a good query set was constructed the number of relevant images that was retrieved rose up to 15-20. 
 
 
 
@@ -93,7 +92,7 @@ Average					&46.77 &	72.50 &		71.00 &		76.10 & 	53.09& \textbf{85.43} \\
 \label{table:res:cbir:compare}
 \end{table}		
 
-Seeing that the proposed model performs this well compared to other CBIR methods is a good result. Yet it is still important to remember that having more query images reduces the risk of only having outliers as training\todo{query} data. \todo{The effect of this was}This was noticed more often when the query set size was set to $2+2$ and $3+3$, but considerably less when the query sets were larger than that. The other studies handles all images in the same category as an equal influence which gives the proposed model \todo{remove ``too much of ''}too much of an upper hand in this evaluation. \todo{But is still interesting since the proposed model}\todokahl{ofullständig mening}Which is interesting since the proposed model is designed to have much larger training/query sets in order to function as intended. 
+Seeing that the proposed model performs this well compared to other CBIR methods is a good result. Yet it is still important to remember that having more query images reduces the risk of only having outliers as query data. The effect of this was noticed more often when the query set size was set to $2+2$ and $3+3$, but considerably less when the query sets were larger than that. The other studies handles all images in the same category as an equal influence which gives the proposed model an upper hand in this evaluation. The results are however still interesting since the proposed model is designed to have much larger training/query sets in order to function as intended. 
 
 \singlefigurenear
 {include/graphs/cbir/compare.PNG}
