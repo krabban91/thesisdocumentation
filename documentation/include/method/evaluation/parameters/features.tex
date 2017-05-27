@@ -1,14 +1,14 @@
 % !TEX root = ..\..\..\..\main.tex
 \subsubsection{Feature descriptors}
 \label{sec:method:eval:param:features}
-To determine how well the classifier performs as an ensemble compared to only using its parts this evaluation has been constructed by using \todo{remove ``or not using''}or not using the first order classifiers either by themselves or in unison. When only using one classifier in the first order, the second order classifier is given a linearly separable value in one dimension and thereby just passes on the information. This evaluation is intended to see which feature descriptors that work well on which categories in the data set. But the intention is also to evaluate if different combinations of feature descriptors will improve the performance of the model. 
+To determine how well the classifier performs as an ensemble compared to only using its parts this evaluation has been constructed by using the first order classifiers either by themselves or in unison. When only using one classifier in the first order, the second order classifier is given a linearly separable value in one dimension and thereby just passes on the information. This evaluation is intended to see which feature descriptors that work well on which categories in the data set. But the intention is also to evaluate if different combinations of feature descriptors will improve the performance of the model. 
 Therefore the evaluation handles 7 different settings: 
 \begin{enumerate}
 	\item \textbf{HOG:} Only using the first order classifier for the HOG descriptors (see Section \ref{sec:meth:featextr:hog}).
 	\item \textbf{GCH:} Only using the first order classifier for the GCH descriptors (see Section \ref{sec:meth:featextr:gch}).
-	\item \textbf{WT:} Only using the first order classifier for the \todo{Haar wavelet transform}wavelet transformation descriptors (see Section \ref{sec:meth:featextr:wt}).
+	\item \textbf{WT:} Only using the first order classifier for the Haar wavelet transform descriptors (see Section \ref{sec:meth:featextr:wt}).
 	\item \textbf{CNN:} Only using the first order classifier for the neural network activation vectors as descriptors (see Section \ref{sec:meth:featextr:cnn}).
-	\item \textbf{Edge:} Only using the first order classifier for the \todo{refer to accordingly with section name}edge detection descriptors (see Section \ref{sec:meth:featextr:edge}).
-	\item \textbf{All:} Combining all the first order classifiers as intended and \todo{proposed in section => as in the proposed model described in Section \ref{sec:method:proposed}.}proposed in Section \ref{sec:method:proposed:matching:classifier}. 
+	\item \textbf{Edge:} Only using the first order classifier for the edge detection histogram descriptors (see Section \ref{sec:meth:featextr:edge}).
+	\item \textbf{All:} Combining all the first order classifiers as intended and as in the proposed model described in Section \ref{sec:method:proposed}. 
 	\item \textbf{All-CNN:} Combining all the first order classifiers with the exception of the neural network activation vectors. This setting was added half-way through the evaluation since the setting \textbf{CNN} almost performed as well as the setting \textbf{All}.
 \end{enumerate}

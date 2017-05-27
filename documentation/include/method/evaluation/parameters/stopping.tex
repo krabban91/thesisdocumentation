@@ -3,15 +3,15 @@
 \label{sec:method:eval:param:stopping}
 
 Evaluating the entire search space every iteration is not just time consuming but also unnessecary since only 25 images are presented at a time. The stopping conditions presented in Section \ref{sec:method:proposed:matching:search} are therefore evaluated to measure their effect on performance.
-As previously mentioned the first stopping condition, if a sample of\todo{from} the search space only contains material that has been passed through the classifier the same search iteration the exploration is over,  \todo{was => is}was always in use to prevent the possibility of an infinite loop while exploring. 
+As previously mentioned the first stopping condition -- if a sample from the search space only contains material that has been passed through the classifier the same search iteration the exploration is over --  is always in use to prevent the possibility of an infinite loop while exploring. 
 
-The four different settings evaluated in this benchmark \todo{are}were
+The four different settings evaluated in this benchmark are
 \begin{enumerate}
 	\item \textbf{All images:} To stop after the entire search space is evaluated. 
 	\item \textbf{Threshold:} To stop after enough images are classified to be above a decision threshold specified in Equation \ref{eq:method:threshold}. 
-	\item \textbf{Early stopping:} To stop if 200 images have been sampled but none are on the positive side of the decision boundary. In this case \todo{present => the relevance feedback module presents}present the \todo{25 images that are considered the least relevant.}bottom 25 images. 
-	\item \textbf{Both rules:} The additive result of using setting  \todo{remove emph}\emph{2} and remove emph\emph{3}.
+	\item \textbf{Early stopping:} To stop if 200 images have been sampled but none are on the positive side of the decision boundary. In this case the relevance feedback module presents the 25 images that are considered the least relevant. 
+	\item \textbf{Both rules:} The additive result of using setting 2 and 3.
 \end{enumerate} 
 \medskip
 
-The intention of the evaluation is to measure the trade-of between correctness in classification \todo{during the search space exploration => of the search space}during the search space exploration and time spent calculating istances to different data points.
+The intention of the evaluation is to measure the trade-of between correctness in classification of the search space and time spent calculating istances to different data points.

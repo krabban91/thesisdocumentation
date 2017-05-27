@@ -1,8 +1,8 @@
 % !TEX root = ..\..\..\main.tex
 \subsection{Matching module}
 \label{sec:meth:proposed:matching}
-As a search iteration is initiated the matching module begins with retrieving training data from the feature extraction module. This training data consists of relevant and non-relevant images that can be used to fit the classifier of the model. When the classifier is set up\todo{,?} the search space can be retrieved from the feature extraction module and then later\todo{remove ``later on''} on be explored. The search space is processed in batches\todo{one batch at the time} at a time to avoid performing predictions on more images than necessary. When the exploration of material has resulted in an\todo{a -an} sufficient amount of material, the material is sorted from most to least relevant and then passed on to the relevance feedback module with labels of \todo{labels of the material being relevant or not}relevant or not. 
-In Figure \ref{fig:meth:proposed:matching} there is a visualization of the workflow \todo{of}for the matching module during a search iteration. 
+As a search iteration is initiated the matching module begins with retrieving training data from the feature extraction module. This training data consists of relevant and non-relevant images that can be used to fit the classifier of the model. When the classifier is set up, the search space can be retrieved from the feature extraction module and then be explored. The search space is processed in batches\todo{one batch at the time} at a time to avoid performing predictions on more images than necessary. When the exploration of material has resulted in a sufficient amount of material, the material is sorted from most to least relevant and then passed on to the relevance feedback module with labels of the material being relevant or not. 
+In Figure \ref{fig:meth:proposed:matching} there is a visualization of the workflow of the matching module during a search iteration. 
 
 \singlefigure
 {figure/matching_module.PNG}
