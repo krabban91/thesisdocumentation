@@ -44,7 +44,8 @@ Histogram of oriented gradients (HOG) is a feature descriptor used for object de
 
 A color histogram is a representation of the color distribution in an image. The color histogram method counts the number of pixels with similar attributes and store them in a number of bins. There are no specific sizes for the bins, though there is a max size based on current color range used. The size used is dependent on the performance of using less bins in contrast to computational cost of using more bins. In image analysis it is common to use HSV for this histogram, which would result in three dimensions of bins, one for each color channel, and a max of 256 bins in each HSV color range. When calculating a global color histogram (GCH) one does not take smaller patches of the image and calculate the concentration of information locally, instead it is calculated over the image as a whole. This approach can be insensitive where the objects might be similar but the color characteristics are. Two completely different images can still contain the same GCH values due to that the images have similar color settings.
 
-\twofigure
+\threefigure
+{figure/gch/cat-bungy-256.png}
 {figure/gch/hsv_histogram.png}
 {figure/gch/hsv_histogram.png}
 {Caption}
