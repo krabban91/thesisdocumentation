@@ -1,4 +1,5 @@
 % !TEX root = ..\..\..\..\main.tex
 \subsubsection{Wavelet transform}
 \label{sec:meth:featextr:wt}
-The Haar wavelet transform has good performance at a cheap computational cost compared to many other wavelet transforms explained in Section \ref{sec:wlt_feature}. In the proposed model 3 levels of transformation is used, resulting in a $2^3 = 8$ dimensions and a feature vector of length 144. At the end the values are normalized and placed in an array to form the feature vector, the implementation is based on the one featured proposed in \cite{wang2015new}.\todo{further explaining)}
+The Haar wavelet transform has good performance at a cheap computational cost compared to many other wavelet transforms explained in Section \ref{sec:wlt_feature}. In the proposed model 3 levels of transformation is used, resulting in a $2^3 = 8$ dimensions and a feature vector of length 144. The first decomposition is done by applying two filters on the rows and columns of the original image. This results in four new images where one is the average of the image and the other three represent details. This is done twice more as it is a 3 level decomposition. At the end the values from all these resulting matrices are placed in an array to form the feature vector, the implementation is based on the one proposed in Wang et al. \cite{wang2015new}.
+
