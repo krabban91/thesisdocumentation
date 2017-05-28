@@ -4,7 +4,7 @@
 Relevance feedback is, as the proposed model suggests in Section \ref{sec:method:proposed:rf}, used to help the model to mount the semantic gap. A user peer-reviews the presented images each iteration and makes corrections where necessary to make sure that the entire dataset is labeled correctly. But to do this on large data sets is both time consuming and takes quite a toll on the user. There is also no guarantee that a user will label the same image as the same category in two separate settings while searching for the same material. 
 Since the evaluations are run on datasets that already are labeled this risk of mistakes can be reduced by instantiating a user simulation. The relevance feedback simulation takes the role of a user that communicates with the relevance feedback module. This way time is saved and no user needs to be present in order for the evaluations to be performed.  
 
-The simulated user will not be misslabeling images because of negligence or exhaustion as a human would. 
+The simulated user will not be mislabeling images because of negligence or exhaustion as a human would. 
 A normal user would fail to label material correctly in the same extent as a simulated one would. 
 However, the error rate for a ``trained'' human is extremely low, comparable to the best neural networks that compete in the ImageNet Large Scale Visual Recognition Challenge (ILSVRC), e.g. GoogleNet \cite{ImageNetChallenge}. 
 In this case a ``trained'' person refers to a person that is aware of the situation and well versed in classifying images. Yet, this still means 4\% misclassification compared to 0\% that is derived when a user is simulated using the labels of a dataset.
