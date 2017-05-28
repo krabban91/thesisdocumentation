@@ -2,18 +2,16 @@
 % !TEX root = ..\main.tex
 \chapter{Introduction}
 \label{chapter:intro}
-\todokahl{ Ibland använder ni kursiverad font för "SVM", ibland inte. Var konsistenta - det inkluderar även andra förkortningar: CBIR, CNN, etc.}
 
-\todokahl{ "eventhough" ska vara "even though". Likaså "atleast" -> "at least". (De finns på flera ställen).}
 Digital video and image files are normally important evidence in criminal investigations, and the amounts of images and videos that constitute the evidence are larger now than ever. The computer forensics community has ever increasing problems with this continued growth of information and in investigations the amount of data to be examined is often problematic \cite{dhs2011}\cite{proc2009forensics}\cite{proc2010forensics}. In order to effectively help the investigators in their tasks of organizing and prioritizing evidence, methods to scrutinize the data in an efficacious manner is vital. In investigations pertaining relevant digital information quickly and effectively material is of importance, as evidence can be of large quantities. Methods focused on grouping material by some collective attributes are often found to be efficient. There are several of these attributes that can be correlated to the information obtainable in visual content, such as in images and video. Since which images that are relevant might differ from case to case, it would be a good praxis if the investigators could define their own respective grouping setting for each separate case. By letting the investigator define some form of concept by directly specify image examples as relevant and non-relevant an algorithm can be trained to recognize a concept queried by an investigator.
 
 \section{Problem definition}
-Within digital forensics the amount of investigation material has grown exponentially while the workforce still grows in a linear pace. In order to handle larger amounts of material algorithms need to be designed to handle large amounts of data in favor of the user. The purpose of the different cases that the forensic investigators handle vary in-between investigations. Since search engines and methods of retrieving material have a static behaviour, the handlers adapts their behaviour to the currently used search engines. The workflow and usage areas of an algorithm should be specified by a hander and the behaviour of the algorithm should adapt to the need of the user and should do so in a generic manner. 
+Within digital forensics the amount of investigation material has grown exponentially while the workforce still grows in a linear pace. In order to handle larger amounts of material algorithms need to be designed to handle large amounts of data in favor of the user. The purpose of the different cases that the forensic investigators handle vary in-between investigations. Since search engines and methods of retrieving material have a static behavior, the handlers adapts their behavior to the currently used search engines. The workflow and usage areas of an algorithm should be specified by a hander and the behavior of the algorithm should adapt to the need of the user and should do so in a generic manner. 
 
 As described above the problems that this thesis approaches are the following:
 \begin{itemize}
 	\item The material of the investigations are not handled fast enough and the time needed to handle of it needs to be reduced.
-	\item There are no image retrievals that fit the current need and to have an algorithm that adapts its behaviour to the user is crucial.
+	\item There are no image retrievals that fit the current need and to have an algorithm that adapts its behavior to the user is crucial.
 	\item Using search methods that are good at certain things does not cut it. An image retrieval method that works for the general case is to prefer.
 \end{itemize}
 
@@ -21,11 +19,11 @@ The standard use case of such a system that solves these issues can be described
 \begin{enumerate}
 	\item \label{enum:intro:problem:usecase1} The algorithm presents a set of images based on previous knowledge of the search preferences to the user. 
 	\item The user specifies which of these images that are relevant for the current case and which are not relevant. 
-	\item The algorithm adapts the search criteras based on new knowledge.
+	\item The algorithm adapts the search criteria based on new knowledge.
 	\item Repeat from item\ref{enum:intro:problem:usecase1}.
 \end{enumerate}
 
-The entire procedure can be continued and each iteration refines the search criteras and after a while the database of material should be exhausted of relevant material.
+The entire procedure can be continued and each iteration refines the search criteria and after a while the database of material should be exhausted of relevant material.
 \section{Goals}
 \label{sec:intro:goals}
 The aim of this project is thus to:
@@ -39,7 +37,7 @@ The aim of this project is thus to:
 \label{sec:intro:delimitations}
 In the scope of this project choices were made to be able to propose a functioning model with some limitations given the time frame of the thesis. The aim is to create a dynamic general concept search engine with following delimitations.
 \begin{itemize}
-	\item Some parameters of the model need to be chosen emperically since all settings are missing support from previous papers. However there are some choices that are made more elaborately, e.g. parameter benchmarks are performed in order to find the optimal setting. 
+	\item Some parameters of the model need to be chosen empirically since all settings are missing support from previous papers. However there are some choices that are made more elaborately, e.g. parameter benchmarks are performed in order to find the optimal setting. 
 	\item The classification method chosen will be a binary one since this will be enough in the scope of this project. The classifier will not be tested towards other methods of classifying.
 	\item Only five different feature descriptors will be used, as the proof of concept of a general learner is central and not how the addition or omission of certain parts changes this function. By using five different feature descriptors makes it possible to get the distinction and variation sought for in a general sense.
 \end{itemize}
@@ -48,7 +46,7 @@ In the scope of this project choices were made to be able to propose a functioni
 
 A classification method is used as a generic image retrieval system to help quickly identify and learn user defined concepts which are previously unknown to the system. 
 The implementation of a Deep SVM with relevance feedback to perform image retrieval with a low false negative rate within a low number of relevance feedback iterations. 
-An attempt to use both weak and strong learners in the same ensemble to enhance performance in terms of a more generic classification. In this report we test a new CBIR method using more then one image as query, which is the normal case, to achieve a higher abstraction level and boost performance. 
+An attempt to use both weak and strong learners in the same ensemble to enhance performance in terms of a more generic classification. In this report a new CBIR method is tested that uses more then one image as query to achieve a higher abstraction level and boost performance. 
 %Though the result indicating this is on the hardest set according to the result it still gives a view of the potential of adding strong learners in an ensemble as well. 
 
 \section{Organization of thesis}
