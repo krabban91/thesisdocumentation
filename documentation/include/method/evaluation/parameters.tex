@@ -1,9 +1,9 @@
 % !TEX root = ..\..\..\main.tex
 \subsection{Parameter benchmarks}
 \label{sec:method:eval:param}
-The presentation of the proposed model in Section \ref{sec:method:proposed} covers the most part of how the optimal implementation is designed. What it does not cover is if some of the design decisions are good or not. For example Section \ref{sec:method:proposed:rf} the selection of images to present to the user is mentioned but not elaborated. There are two stopping conditions introduced in Section \ref{sec:method:proposed:matching:search} but they still need to be evaluated in regard of how they effect performance. \todokahl{In Section... Konstig mening. Omformulera.}In Section \ref{sec:method:proposed:matching:search}, that covers how the search space is explored, two stopping conditions are introduced, yet how they affect performance needs to be evaluated. The five feature descriptors covered in Section \ref{sec:method:proposed:features}, need to be evaluated. Not only in combination but how they perform on their own.
+The presentation of the proposed model in Section \ref{sec:method:proposed} covers the most part of how the optimal implementation is designed. What it does not cover is if some of the design decisions are good or not. For example Section \ref{sec:method:proposed:rf} the selection of images to present to the user is mentioned but not elaborated. There are two stopping conditions introduced in Section \ref{sec:method:proposed:matching:search} which need to be evaluated to see how they effect the performance. The five feature descriptors covered in Section \ref{sec:method:proposed:features}, need to be evaluated. Not only in combination but how they perform on their own.
 %In Section \ref{sec:method:proposed:features}, that covers the feature extraction module, five different feature descriptors are extracted to be used by the classifier. 
-The usage of these feature descriptors alone needs to be compared to when they are combined\todo{rephrase}. As well as the effect of the training sets mentioned in Section \ref{sec:method:proposed:matching:training}. How much can the behaviour of the model change depending on training set sizes.
+As well as the effect of the training sets mentioned in Section \ref{sec:method:proposed:matching:training}. How much can the behavior of the model change depending on training set sizes.
 To summarize, the parameter benchmarks are the following four evaluations:
 \begin{itemize}
 \item The effect of presenting different sets of images to the user for relevance feedback (Section \ref{sec:method:eval:param:learning}).
@@ -36,7 +36,7 @@ A metric that measures the models effectiveness is the F1-measure (\ref{eq:meth:
 \end{split}
 \end{equation}
 
-The F1-measure is the harmonic mean of recall and precision \cite{powers2011evaluation}, meaning that recall and precision are equally weighted and that smaller values are punished\todo{punished?} more than when using a normal average function. 
+The F1-measure is the harmonic mean of recall and precision \cite{powers2011evaluation}, meaning that recall and precision are equally weighted and that smaller values are punished more than when using a normal average function. 
 
 The final metric to present is the accuracy (\ref{eq:meth:accuracy}) 
 
@@ -72,7 +72,7 @@ The benchmark evaluations are measured in two different ways.
 	\end{itemize}   
 \end{enumerate}
 \medskip
-When measuring the performance of classifying the search space the metrics are the accumulated value of the performance so far during the search, meaning that after iteration 20 the performance is measured on the 500 images that have received an prediction by the proposed\todo{hard sentence?}.
+When measuring the performance of classifying the search space the metrics are the accumulated value of the performance so far during the search. This mean that after iteration 20 the performance is measured on the 500 images that have received an prediction by the proposed.
 
 In order to retrieve a general trend, each evaluation setting is run five separate times and the metrics during these runs are presented with the maximum, the minimum and the geometric mean of each iteration. This allows the graphs that are presented in this section to show how much the metrics varied depending on different factors, such as image selection or how the decision boundary was fitted.
 
