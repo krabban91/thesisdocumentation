@@ -17,17 +17,24 @@
 Digital video and image files are normally important evidence in criminal investigations, and the amounts of images and videos that constitute the evidence are larger now than ever. The computer forensics community has ever increasing problems with this continued growth of information and in investigations the amount of data to be examined is often problematic \cite{dhs2011}\cite{proc2009forensics}\cite{proc2010forensics}. In order to effectively help the investigators in their tasks of organizing and prioritizing evidence, methods to scrutinize the data in an efficacious manner is vital. In investigations pertaining relevant digital information quickly and effectively material is of importance, as evidence can be of large quantities. Methods focused on grouping material by some collective attributes are often found to be efficient. There are several of these attributes that can be correlated to the information obtainable in visual content, such as in images and video. Since which images that are relevant might differ from case to case, it would be a good praxis if the investigators could define their own respective grouping setting for each separate case. By letting the investigator define some form of concept by directly specify image examples as relevant and non-relevant an algorithm can be trained to recognize a concept queried by an investigator.
 
 \section{Problem definition}
-Problems that where relevant for this thesis are as follows:
+Within digital forensics the amount of investigation material has grown exponentially while the workforce still grows in a linear pace. In order to handle larger amounts of material algorithms need to be designed to handle large amounts of data in favor of the user. The purpose of the different cases that the forensic investigators handle vary in-between investigations. Since search engines and methods of retrieving material have a static behaviour, the handlers adapts their behaviour to the currently used search engines. The workflow and usage areas of an algorithm should be specified by a hander and the behaviour of the algorithm should adapt to the need of the user and should do so in a generic manner. 
+
+As described above the problems that this thesis approaches are the following:
 \begin{itemize}
-	\item make an algorithm understand that the desired concept of a user.
-	\item to find efficient search methods which fit well for the general case, as users often want to modify the results of a search more than they can. 
-	\item to find datasets which are generic enough to train on that the algorithm shows good performance in new distinct user cases which have concepts not yet defined. 
+	\item The material of the investigations are not handled fast enough and the time needed to handle of it needs to be reduced.
+	\item There are no image retrievals that fit the current need and to have an algorithm that adapts its behaviour to the user is crucial.
+	\item Using search methods that are good at certain things does not cut it. An image retrieval method that works for the general case is to prefer.
 \end{itemize}
-%The approach is to create a ensemble classification method which uses To achieve this a method called \emph{relevance feedback} is incorporated, where a user interacts with the algorithm by being presented a couple of images each iteration and labels these in accordance with their relevance against the sought after concept. 
-%By using relevance feedback in the learning process a direct correction of the \emph{false positives} and \emph{false negatives} will give an increase in learning rate considered against not having a user which checks and tunes the algorithm. Each iteration will thus be made up of a selection of parts which constitutes; searching the image database for relevant content based on what the algorithm has learned in its previous stages. Presenting the most relevant ones to a user that corrects any errors in labeling and applies the desired labeling for the images. These newly labeled and checked images are then used to re-train and update the algorithm in each iteration.
 
-\TODO{Use case. Under problem definition}
+The standard use case of such a system that solves these issues can be described as:
+\begin{enumerate}
+	\item \label{enum:intro:problem:usecase1} The algorithm presents a set of images based on previous knowledge of the search preferences to the user. 
+	\item The user specifies which of these images that are relevant for the current case and which are not relevant. 
+	\item The algorithm adapts the search criteras based on new knowledge.
+	\item Repeat from item\ref{enum:intro:problem:usecase1}.
+\end{enumerate}
 
+The entire procedure can be continued and each iteration refines the search criteras and after a while the database of material should be exhausted of relevant material.
 \section{Goals}
 \label{sec:intro:goals}
 The aim of this project is thus to:
