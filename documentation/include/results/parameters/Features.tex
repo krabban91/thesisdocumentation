@@ -4,7 +4,7 @@
 \label{sec:res:features}
 This evaluation is described in Section \ref{sec:method:eval:param:features} and a presentation of the evaluated settings can be found there. The settings described are \textbf{HOG}, \textbf{GCH}, \textbf{WT}, \textbf{CNN}, \textbf{Edge}, \textbf{All} and \textbf{All-CNN}.
 
-The evaluation is performed with both of the stopping conditions that were evaluated in Section \ref{sec:res:stopping} and the material that is presented in each iteration is, as the evaluation in Section \ref{sec:res:learning:iter} suggests, a combination of the \emph{top-20} images and the \emph{bottom-5}. 
+The evaluation is performed with both of the stopping conditions that were evaluated in Section \ref{sec:res:stopping} and the material that is presented in each iteration is, as the evaluation in Section \ref{sec:res:learning:iter} suggests, a combination of the top-20 images and the bottom-5. 
 
 Just like the previous parameter benchmarks the performance is measured over the entire search space as well as how a separate evaluation set is categorized.
 
@@ -12,7 +12,7 @@ Just like the previous parameter benchmarks the performance is measured over the
 \label{sec:res:features:eval}
 
 
-Throughout all the metrics that were measured during the evaluation the settings that used \emph{CNN} feature descriptors considerably outperformed the other settings.  A trend that is distinguishable in both the F1-measure (Figure \ref{fig:features:eval_set:f1}) and the accuracy (Figure \ref{fig:features:eval_set:accuracy}) of the two settings that incorporate the \emph{CNN} feature descriptor. There was a slight difference between using only the \emph{CNN} feature vector as a descriptor and combining all the feature descriptors.
+Throughout all the metrics that were measured during the evaluation the settings that used CNN feature descriptors considerably outperformed the other settings.  A trend that is distinguishable in both the F1-measure (Figure \ref{fig:features:eval_set:f1}) and the accuracy (Figure \ref{fig:features:eval_set:accuracy}) of the two settings that incorporate the CNN feature descriptor. There was a slight difference between using only the CNN feature vector as a descriptor and combining all the feature descriptors.
 
 \tripfigurenear
 {include/graphs/features/baseball_field/eval_set/f1.PNG}
@@ -25,10 +25,10 @@ Throughout all the metrics that were measured during the evaluation the settings
 {include/graphs/features/baseball_field/eval_set/accuracy.PNG}
 {include/graphs/features/bedroom/eval_set/accuracy.PNG}
 {include/graphs/features/bar/eval_set/accuracy.PNG}
-{The accuracy of the different settings on the three evaluation sets. The \emph{CNN} feature descriptor performs better as an information vector than the other descriptors.}
+{The accuracy of the different settings on the three evaluation sets. The CNN feature descriptor performs better as an information vector than the other descriptors.}
 {fig:features:eval_set:accuracy}
 
-The value of combining different feature descriptors become more clear when omitting the results of the fourth and sixth setting and only inspecting the remaining four feature descriptors and the combination of those. The F1-measure of the remaining five settings can be seen in Figure \ref{fig:features:eval_set:f1_no_cnn}. Which single feature descriptor that performs the best depends on which category that the target is. For the category \emph{Bedroom} a better result is given when using the \emph{HOG} descriptor while for the other two categories the target concept is more distinguishable when using the \emph{GCH} descriptor. But more importantly; the combination of the four descriptor performs better or just as good as the best single descriptor. 
+The value of combining different feature descriptors become more clear when omitting the results of the fourth and sixth setting and only inspecting the remaining four feature descriptors and the combination of those. The F1-measure of the remaining five settings can be seen in Figure \ref{fig:features:eval_set:f1_no_cnn}. Which single feature descriptor that performs the best depends on which category that the target is. For the category Bedroom a better result is given when using the HOG descriptor while for the other two categories the target concept is more distinguishable when using the GCH descriptor. But more importantly; the combination of the four descriptor performs better or just as good as the best single descriptor. 
 
 
 \tripfigure
@@ -41,13 +41,13 @@ The value of combining different feature descriptors become more clear when omit
 \subsubsection{Search space}
 \label{sec:res:features:iter}
 
-As mentioned in Section \ref{sec:res:features:eval} the different target categories of the data sets are more distinguishable when using the \emph{CNN} activation vector during classification. This is also evident in the F1-measure (Figure \ref{fig:features:iteration:f1}) and accuracy (Figure \ref{fig:features:iteration:accuracy}) when classifying the search space. More interestingly the positive effect of combining the first order classifiers become more clear in these measurements. When inspecting the \emph{Bar} category in the two figures the \emph{All} setting outperforms the setting that only uses the \emph{CNN} activation vector as a feature descriptor.
+As mentioned in Section \ref{sec:res:features:eval} the different target categories of the data sets are more distinguishable when using the CNN activation vector during classification. This is also evident in the F1-measure (Figure \ref{fig:features:iteration:f1}) and accuracy (Figure \ref{fig:features:iteration:accuracy}) when classifying the search space. More interestingly the positive effect of combining the first order classifiers become more clear in these measurements. When inspecting the  category Bar in the two figures the setting All outperforms the setting that only uses the CNN activation vector as a feature descriptor.
 
 \tripfigurenear
 {include/graphs/features/baseball_field/iteration/f1.PNG}
 {include/graphs/features/bedroom/iteration/f1.PNG}
 {include/graphs/features/bar/iteration/f1.PNG}
-{The F1-measure that the different settings had when classifying the search spaces of the three evaluation categories. The F1-measure on the \emph{Bar} category is higher when combining all the feature descriptors compared with solely using the CNN feature descriptor.}
+{The F1-measure that the different settings had when classifying the search spaces of the three evaluation categories. The F1-measure on the category Bar is higher when combining all the feature descriptors compared with solely using the CNN feature descriptor.}
 {fig:features:iteration:f1}
 
 \tripfigurenear
@@ -58,13 +58,13 @@ As mentioned in Section \ref{sec:res:features:eval} the different target categor
 {fig:features:iteration:accuracy}
 
 
-All the different settings of feature descriptors do seem to be able to present some distinguishability between the different categories. With the exception of the initial rounds of searching for the category \emph{Baseball field} with the setting \emph{WT}, where the results are in line with selecting images at random. The number of retrieved images at a certain iteration is presented in Figure \ref{fig:features:iteration:retrieval}. Here the superiority of using the \emph{CNN} activation vector becomes even more clear: When retrieving the bedroom class, the settings that use the CNN feature descriptor have retrieved the entire target category at iteration 80 while the other settings can not retrieve the entire class until the search space is depleted. 
+All the different settings of feature descriptors do seem to be able to present some distinguishability between the different categories. With the exception of the initial rounds of searching for the category Baseball field with the setting WT, where the results are in line with selecting images at random. The number of retrieved images at a certain iteration is presented in Figure \ref{fig:features:iteration:retrieval}. Here the superiority of using the CNN activation vector becomes even more clear: When retrieving the bedroom class, the settings that use the CNN feature descriptor have retrieved the entire target category at iteration 80 while the other settings can not retrieve the entire class until the search space is depleted. 
 
 \tripfigurenear
 {include/graphs/features/baseball_field/iteration/retrieved.png}
 {include/graphs/features/bedroom/iteration/retrieved.png}
 {include/graphs/features/bar/iteration/retrieved.png}
-{The number of retrieved images that the different settings had when classifying the search spaces. By introducing the \emph{CNN} feature descriptors to the classifier the concepts of the categories seem to be easier to retrieve.}
+{The number of retrieved images that the different settings had when classifying the search spaces. By introducing the CNN feature descriptors to the classifier the concepts of the categories seem to be easier to retrieve.}
 {fig:features:iteration:retrieval}
 
 
@@ -78,5 +78,5 @@ The total time spent computing predictions depended on how many and which classi
 {The total time taken for the different settings. The more feature descriptors that are used the more time it takes to train the classifying system.}
 {fig:features:iteration:totaltime}
 
-Given the performance of the \emph{CNN} setting one might consider only using this setting in the final evaluation. But as stated in Section \ref{sec:method:eval:param} the classifier is used as intended throughout the parameter benchmarks with the exception of this evaluation. 
+Given the performance of the CNN setting one might consider only using this setting in the final evaluation. But as stated in Section \ref{sec:method:eval:param} the classifier is used as intended throughout the parameter benchmarks with the exception of this evaluation. 
 

@@ -28,14 +28,14 @@ The results of the evaluation described in Section \ref{sec:method:eval:param:tr
 
 The metrics used for this evaluation are presented in Section \ref{sec:method:eval:param} and are as mentioned performed on an evaluation set and the search space. But the number of settings in this evaluation was higher than anticipated. Due to the number of different settings in this evaluation the presentation of the metrics will only consist the average value of the five runs of each setting. When the graphs included minimum and maximum values for each setting the data became much harder to understand and close to impossible to draw any conclusions from.
 
-The model will during the evaluation use all of the stopping conditions described in Section \ref{sec:method:proposed:matching:search}, present the \emph{top-20} images and \emph{bottom-5} images in the end of every iteration as proposed in Section \ref{sec:result:stopping:iterations} and the classifier uses the full set of feature descriptors as described in Section \ref{sec:method:eval:param}. 
+The model will during the evaluation use all of the stopping conditions described in Section \ref{sec:method:proposed:matching:search}, present the top-20 images and bottom-5 images in the end of every iteration as proposed in Section \ref{sec:result:stopping:iterations} and the classifier uses the full set of feature descriptors as described in Section \ref{sec:method:eval:param}. 
 
 \subsubsection{Evaluation set}
 \label{sec:res:knownset:eval}
 Naturally the performance of the settings that only use a predefined training set when classifying the evaluation set is same throughout all iterations. As expected the performance increases when having more data to begin with. In terms of F1-measure (seen in Figure \ref{fig:knownset:evalset:f1}) the performance of smaller training data sets are superseded by the performances of bigger training data sets. 
 
 
-The settings that use training set data retrieved by relevance feedback did however outperform the settings that did not. In the end of the search both the F1-measure and the accuracy where about the same for setting \emph{3} as for the setting \emph{1D}. But at around iteration 25 in the settings that use relevance feedback (settings \emph{2A-2D} and \emph{3}) have performance peaks that are considerably higher than at the end of the search, which is noticeable in Figure \ref{fig:knownset:evalset:f1} and Figure \ref{fig:knownset:evalset:accuracy}.
+The settings that use training set data retrieved by relevance feedback did however outperform the settings that did not. In the end of the search both the F1-measure and the accuracy where about the same for setting 3 as for the setting 1D. But at around iteration 25 in the settings that use relevance feedback (settings 2A-2D and 3) have performance peaks that are considerably higher than at the end of the search, which is noticeable in Figure \ref{fig:knownset:evalset:f1} and Figure \ref{fig:knownset:evalset:accuracy}.
 
 \tripfigurenear
 {include/graphs/knownset/baseball_field/eval_set/f1.PNG}
@@ -44,13 +44,13 @@ The settings that use training set data retrieved by relevance feedback did howe
 {The F1-measure read on the evaluation set over iterations.}
 {fig:knownset:evalset:f1}
 
-The biggest difference between the settings \emph{2A-2D} and the setting \emph{3} was that during the initial three to six iterations. The setting with predefined data could actually perform a search while setting \emph{3} could not. Causing the performance of setting \emph{3} to be considerably lower than the performance of the other settings. But after those iterations the performance continuously rose up to be in level with the the settings \emph{2A, 2B, 2C \& 2D}. Eventhough setting \emph{2D} had a predefined data set of 250+250 relevant and non-relevant images their performance on the evaluation set turned out to be level. Yet it took the setting \emph{2D} a few more iterations to be on par with the settings \emph{2A-2C} and \emph{3}.
+The biggest difference between the settings 2A-2D and the setting 3 was that during the initial three to six iterations. The setting with predefined data could actually perform a search while setting 3 could not. Causing the performance of setting 3 to be considerably lower than the performance of the other settings. But after those iterations the performance continuously rose up to be in level with the the settings 2A, 2B, 2C \& 2D. Eventhough setting 2D had a predefined data set of 250+250 relevant and non-relevant images their performance on the evaluation set turned out to be level. Yet it took the setting 2D a few more iterations to be on par with the settings 2A-2C and 3.
 
 \tripfigure
 {include/graphs/knownset/baseball_field/eval_set/accuracy.PNG}
 {include/graphs/knownset/bedroom/eval_set/accuracy.PNG}
 {include/graphs/knownset/bar/eval_set/accuracy.PNG}
-{The accuracy on the evaluation sets. Using only training set data from relevance (setting \emph{3}) achieves higher results than a predefined training set, that has more relevant images than the search space (setting \emph{1D}) between iteration 10 and 80.}
+{The accuracy on the evaluation sets. Using only training set data from relevance (setting 3) achieves higher results than a predefined training set, that has more relevant images than the search space (setting 1D) between iteration 10 and 80.}
 {fig:knownset:evalset:accuracy}
 
 \subsubsection{Search space}
@@ -66,13 +66,13 @@ The metrics precision, recall, F1-measure and accuracy gave relatively inconclus
 {The F1-measure that the different settings had when classifying the search space. Having more data implies that the results become better.}
 {fig:knownset:iteration:f1}
 
-In terms of how well the different settings perform these measurements do not imply anything else than the more training data one has the better the result gets. The number of retrieved images after a certain iteration, as visualized in Figure \ref{fig:knownset:iteration:retrieval}, reflects the different sizes of traning data they had. By comparing the results of setting \emph{1D} with setting \emph{2D} when searching for the category \emph{Bar} in this figure, one can see how the data from relevance feedback improved the result of retrieving relevant material.
+In terms of how well the different settings perform these measurements do not imply anything else than the more training data one has the better the result gets. The number of retrieved images after a certain iteration, as visualized in Figure \ref{fig:knownset:iteration:retrieval}, reflects the different sizes of traning data they had. By comparing the results of setting 1D with setting 2D when searching for the category Bar in this figure, one can see how the data from relevance feedback improved the result of retrieving relevant material.
 
 \tripfigurenear
 {include/graphs/knownset/baseball_field/iteration/retrieved.png}
 {include/graphs/knownset/bedroom/iteration/retrieved.png}
 {include/graphs/knownset/bar/iteration/retrieved.png}
-{The number of retrieved imaged over the search iterations. Solely having 5 relevant images as training data (as in setting \emph{1A} and setting \emph{1B}) results in the incapability of retrieving the full content of the search space until it is depleted.}
+{The number of retrieved imaged over the search iterations. Solely having 5 relevant images as training data (as in setting 1A and setting 1B) results in the incapability of retrieving the full content of the search space until it is depleted.}
 {fig:knownset:iteration:retrieval}
 
 In the intended scenario, the search space is unlabeled and is therefore categorized while the data is presented. In this setting the time taken to predict the category of the images should be relative to how long it takes to correct poorly predicted categories, which is not covered by the scope of the thesis. The time taken for each of the settings to categorize the search space relative to each other is presented in Figure \ref{fig:knownset:iteration:timetaken}. The impact of refitting the classifiers each iteration truly becomes clear in this figure as well as how the size of the training set causes training the classifier to take longer. 

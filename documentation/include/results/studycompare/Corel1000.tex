@@ -12,7 +12,7 @@ The proposed model is adjusted to randomly sample the query data from the search
 %{fig:result:cor:interface}
 %{0.6}
 
-The results of the evaluation on different sizes of query sets for the thesis model is presented in Table \ref{table:res:cbir:prec20} as well as in Figure \ref{fig:res:cbir:iictvc} (\emph{IICTVC} is short for the name of the thesis). When having the smallest number of query images and looking for the categories \emph{Africans} and \emph{Beaches} resulted in an average retrieval precision that is below $10\%$. But when having the largest number of query images the average retrieval precision on the same categories is above $80\%$.
+The results of the evaluation on different sizes of query sets for the thesis model is presented in Table \ref{table:res:cbir:prec20} as well as in Figure \ref{fig:res:cbir:iictvc}. When having the smallest number of query images and looking for the categories Africans and Beaches resulted in an average retrieval precision that is below $10\%$. But when having the largest number of query images the average retrieval precision on the same categories is above $80\%$.
 
 
 \begin{table}	
@@ -42,12 +42,12 @@ Average						&	$35.59\pm0.01 $ &	$53.09\pm0.04 $ &	$77.76\pm0.02 $ &	$85.43\pm0.
 \multicolumn{7}{l}{$i$ - number of irrelevant images in query set.}
 \end{tabular}							
 \end{scriptsize}
-\caption{Precision when retrieving 20 images from the Corel-1000 set with different query sets. Note that the variance decreases as the query set increases from six images to more.}
+\caption{Precision when retrieving 20 images from the Corel-1000 set with different query sets. Note that the variance decreases as the query set increases from six images to more. IICTVC is short for the name of the thesis.}
 \label{table:res:cbir:prec20}
 \end{table}							
 \singlefigurenear
 {include/graphs/cbir/IICTVC.png}
-{Precision when retrieving 20 images from the Corel-1000 set with different query sets presented in a graph. The query size affects the performance.}
+{Precision when retrieving 20 images from the Corel-1000 set with different query sets presented in a graph. The query size affects the performance. IICTVC is short for the name of the thesis.}
 {fig:res:cbir:iictvc}
 {0.9}
 
@@ -55,7 +55,7 @@ In both the Table \ref{table:res:cbir:prec20} and the Figure \ref{fig:res:cbir:i
 
 
 
-Given the results of the inspected papers, mentioned in Section \ref{sec:meth:eval:studycomp:corel}, the query sizes that are used to compare with were set to $3+3$ and $5+5$ relevant and irrelevant images. The comparison of the \emph{precision@20} evaluations can be seen in Table \ref{table:res:cbir:compare} and Figure \ref{fig:res:cbir:compare}. When the query size of the proposed model is set to $3+3$ the model performs slightly better than the model described in \cite{wang2001simplicity}, yet slightly worse than the models in \cite{subrahmanyam2013modified}, \cite{nagaraja2015low} and \cite{elalami2014new}. But when the query set of the proposed model is set to $5+5$ the performance of the proposed model supersedes the other ones. 
+Given the results of the inspected papers, mentioned in Section \ref{sec:meth:eval:studycomp:corel}, the query sizes that are used to compare with were set to $3+3$ and $5+5$ relevant and irrelevant images. The comparison of the precision@20 evaluations can be seen in Table \ref{table:res:cbir:compare} and Figure \ref{fig:res:cbir:compare}. When the query size of the proposed model is set to $3+3$ the model performs slightly better than the model described in \cite{wang2001simplicity}, yet slightly worse than the models in \cite{subrahmanyam2013modified}, \cite{nagaraja2015low} and \cite{elalami2014new}. But when the query set of the proposed model is set to $5+5$ the performance of the proposed model supersedes the other ones. 
 
 
 \begin{table}	

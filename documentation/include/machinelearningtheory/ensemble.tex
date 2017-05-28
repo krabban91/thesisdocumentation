@@ -8,7 +8,7 @@ There is great potential with the use of several classifiers. This because a sin
 
 \subsection{Deep support vector machine}
 \label{sec:deepSVM}
-A \emph{Deep support vector machine} (Deep SVM) is model aimed to enhance the performance by using multiple SVMs by positioning them in layers, inspired by deep belief networks \cite{hinton2006reducing} and other stacking generalization approaches using SVMs \cite{chen2009using}.
+A Deep support vector machine (Deep SVM) is model aimed to enhance the performance by using multiple SVMs by positioning them in layers, inspired by deep belief networks \cite{hinton2006reducing} and other stacking generalization approaches using SVMs \cite{chen2009using}.
 The idea is to build layers of SVMs where the output of the previous layer becomes the input of the next layer. The use of more layers give new possibilities in classifications which cannot be achieved with single, however complex, kernel functions. One example of this is the XOR function which can not be solved with a single SVM, but can be when using layers of SVMs. The structure can be perceived in Figure \ref{fig:mltheory:ensemble:deepsvmclassify}, where the initial box, presenting the different feature vectors to the classifying system. The first layer of SVMs receives the feature vectors as input and the output of the first layer becomes the input of the following layer. The number of classifiers in the first layer is only restricted by the number of feature vectors presented to the system, which is an arbitrary number. The final layer, in the figure called ``Meta SVM'', presents the final result of the system. This result is know as the meta-feature vector and has potential of solving higher dimensional problems.
 
 \singlefigure

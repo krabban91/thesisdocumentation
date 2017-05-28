@@ -22,7 +22,7 @@ In Section \ref{sec:method:proposed:features} the feature extraction module is d
 {fig:result:prod:extraction}
 {0.5}
 
-The only information that the user recieves while searching when a workspace is configured to be label oriented is a log of each iteration. The label oriented search view can be seen in Figure \ref{fig:result:prod:labeled} and the search interface that is designed for the intended use and where relevance feedback is retrieved from a user can be seen in Figure \ref{fig:result:prod:search}. In this view the model presents 25 images to the user every iteration. As mentioned in Section \ref{sec:method:proposed:rf} it is of importance to present the images that are useful to learn the intended concept as well as present images from that concept. In this case these are 20 images that are the most relevant according to the model (\emph{top-20}) as well as 5 images that are the least probable to be relevant (\emph{bottom-5}). The effect of presenting different sets of images every iteration can be observed in Section \ref{sec:res:learning}.
+The only information that the user recieves while searching when a workspace is configured to be label oriented is a log of each iteration. The label oriented search view can be seen in Figure \ref{fig:result:prod:labeled} and the search interface that is designed for the intended use and where relevance feedback is retrieved from a user can be seen in Figure \ref{fig:result:prod:search}. In this view the model presents 25 images to the user every iteration. As mentioned in Section \ref{sec:method:proposed:rf} it is of importance to present the images that are useful to learn the intended concept as well as present images from that concept. In this case these are 20 images that are the most relevant according to the model (top-20) as well as 5 images that are the least probable to be relevant (bottom-5). The effect of presenting different sets of images every iteration can be observed in Section \ref{sec:res:learning}.
 
 \singlefigurenear
 {include/interface/labelled_search0.PNG}
@@ -32,7 +32,7 @@ The only information that the user recieves while searching when a workspace is 
 
 \singlefigurenear
 {include/interface/eighth_it.PNG}
-{The interactive search interface during the relevanc feedback part of a search iteration. Notice how the \emph{top 20} results have images on both sides of the decision boundary. This normally happens after a couple of iterations. Images marked red are corrections made by the user and the images marked blue are the ones that the user considers that the model predicted correctly.}
+{The interactive search interface during the relevanc feedback part of a search iteration. Notice how the top 20 results have images on both sides of the decision boundary. This normally happens after a couple of iterations. Images marked red are corrections made by the user and the images marked blue are the ones that the user considers that the model predicted correctly.}
 {fig:result:prod:search}
 {0.5}
 

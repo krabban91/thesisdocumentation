@@ -5,7 +5,7 @@
 A Support vector machine (SVM) is essentially a supervised learning model where data is analyzed for classification and regression analysis. Can be said to be a non-probabilistic binary classifier since new examples are assigned to either of two categories and when a data point is assigned to a category it will continue to be so. The way an SVM works is that the training data used is mapped in a way that separates the different categories by an as large margin as possible. The margin are between a boundary and the data points is measures geometrically and therefore distance functions are designed in various ways to attack this kind of problems.
 A data point of a set is considered as a p-dimensional vector (composed of p numbers) and the goal is to be able to separate the data with a (p-1)-dimensional hyperplane. 
 
-SVMs have been found to function well on both small and large dimension sizes \cite{vert2005kernel}, but all datasets are not easily divided by a linear model.  Due to this the \emph{Kernel trick} was invented. A non-linear classification implicitly mapping their inputs into a different dimensional feature space.
+SVMs have been found to function well on both small and large dimension sizes \cite{vert2005kernel}, but all datasets are not easily divided by a linear model.  Due to this the Kernel trick was invented. A non-linear classification implicitly mapping their inputs into a different dimensional feature space.
 
 SVMs can be used for classification, regression and outlier detection. But since the thesis has its focus within classification the theory covering the other two use cases will be omitted. 
 
@@ -39,7 +39,7 @@ The larger the distance from the hyperplane to a point the more certain the pred
 \subsection{Kernels}
 
 Kernels define the cartesian product between vectors, which can be used to get the a real value. In order to create a kernel one defines a function $K$ from the cartesian product of the feature space to a real value ($K:\mathcal{X}\times \mathcal{X} \rightarrow \mathbb{R}$). This real value can subsequently be used to evaluate a distance value. Depending on the chosen kernel the distance have different attributes an thus the kernel can be selected to receive better results for different datasets.
-Kernels in SVMs are different methods of how the hyperplane is generated for the SVM and thus gives different ways of separating the data.  The most common ones are the \emph{linear} and the \emph{radial-basis function} (RBF) kernels. The linear kernel is a straightforward approach which is as the name suggests a separates data in in a linear manner. 
+Kernels in SVMs are different methods of how the hyperplane is generated for the SVM and thus gives different ways of separating the data.  The most common ones are the linear and the radial-basis function (RBF) kernels. The linear kernel is a straightforward approach which is as the name suggests a separates data in in a linear manner. 
 But when data data is not linearly separable this kernel will not suffice. 
 An example of a kernel that could solve solve this problem is the RBF. The RBF kernel is a fast approach that often work, as long as the feature space is not too large, and can be used to separate inliers from outliers. The kernel often uses a norm function between two points in order to separate them, e.g. the squared two-norm  (\ref{eq:rbf_kernel})
 \begin{equation}
